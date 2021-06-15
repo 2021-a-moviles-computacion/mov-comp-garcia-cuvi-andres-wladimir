@@ -79,3 +79,5 @@ Clases-Kotlin/00-kotlin/.gradle/6.8/
 Clases-Kotlin/00-kotlin/.gradle/buildOutputCleanup/
 
 Clases-Kotlin/00-kotlin/
+
+!Clases-Kotlin/00-kotlin/src/main/kotlin/
