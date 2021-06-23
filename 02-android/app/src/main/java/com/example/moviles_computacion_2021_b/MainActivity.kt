@@ -9,20 +9,35 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+//     Botón para ir a la Actividad ACicloVida
         val btnIrACicloVida = findViewById<Button>(
             R.id.btnCicloVida
         )
 
         btnIrACicloVida.setOnClickListener{
-            abrirCicloVida()
+            abrirActividad(ACicloVida::class.java)
         }
+
+//     Botón para ir a la Actividad ACicloVida
+
+        val btnIrBListView = findViewById<Button>(
+            R.id.btnIrListView
+        )
+
+        btnIrBListView.setOnClickListener{
+            abrirActividad(BListView::class.java)
+        }
+
+
 
     }
 
-    fun abrirCicloVida(){
+    fun abrirActividad(
+        clase: Class<*>
+    ){
         val intentExplicito = Intent(
             this,
-            ACicloVida::class.java
+            clase
         )
         this.startActivity(intentExplicito);
     }
