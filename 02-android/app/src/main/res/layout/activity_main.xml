@@ -43,4 +43,26 @@
         app:layout_constraintStart_toStartOf="@+id/btnCicloVida"
         app:layout_constraintTop_toBottomOf="@+id/btnCicloVida" />
 
+    <Button
+        android:id="@+id/btnIrIntent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="INTENT"
+        app:layout_constraintEnd_toEndOf="@+id/btnIrListView"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="@+id/btnIrListView"
+        app:layout_constraintTop_toBottomOf="@+id/btnIrListView" />
+
+    <Button
+        android:id="@+id/btnIrIntentImplicito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="IMPLICITO"
+        app:layout_constraintEnd_toEndOf="@+id/btnIrIntent"
+        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintStart_toStartOf="@+id/btnIrIntent"
+        app:layout_constraintTop_toBottomOf="@+id/btnIrIntent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
