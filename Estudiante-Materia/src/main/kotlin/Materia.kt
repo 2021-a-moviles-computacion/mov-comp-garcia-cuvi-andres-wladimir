@@ -11,13 +11,7 @@ class Materia{
     var estudiantes: ArrayList<Estudiante> = arrayListOf()
     var materias: ArrayList<Materia> = arrayListOf()
 
-//    fun getEstudiante(): ArrayList<Estudiante> {
-//        return estudiantes
-//    }
-//
-//    fun setEstudiante(estudiantes: ArrayList<Estudiante>) {
-//        this.estudiantes = estudiantes
-//    }
+
 
     fun insert (materia: Materia){
         materias.add(materia)
@@ -54,7 +48,13 @@ class Materia{
         materias.forEach{materia ->
             if (materia.nombre ==  consulta){
                 filteredList.add(materia)
+            }else{
+                JOptionPane.showMessageDialog(
+                    null,
+                    "No se encuentra esa materia"
+                )
             }
+
 
         }
         return filteredList

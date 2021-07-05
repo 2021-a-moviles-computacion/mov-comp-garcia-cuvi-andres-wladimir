@@ -1,36 +1,18 @@
 
-
-Materia -> Código: 5116  Nombre: 1651sdfgs, Créditos: 15, Aula: fdsg, Estado: false
-			Lista de estudiantes:
-			[
-			Estudiante ->  Número único: 1561, Cédula de Identidad: 151651, Nombre: sdfgsd, Carrera: sdfgsd, Fecha de Nacimiento: Mon Jul 05 15:53:55 COT 2021, Estado: false  
-			]
-Materia -> Código: 1516  Nombre: SIIUUU, Créditos: 6, Aula: as, Estado: false
-			Lista de estudiantes:
-			[
-			Estudiante ->  Número único: 1561, Cédula de Identidad: 1651651, Nombre: sadfasd dsfasdf, Carrera: dasf, Fecha de Nacimiento: Mon Jul 05 15:54:33 COT 2021, Estado: false  
-			]
-Materia -> Código: asdf  Nombre: sdafgf, Créditos: 5, Aula: A1, Estado: false
-			Lista de estudiantes:
-			[
-			Estudiante ->  Número único: 156, Cédula de Identidad: 156165, Nombre: sdf sdfasd, Carrera: dfag, Fecha de Nacimiento: Mon Jul 05 16:07:08 COT 2021, Estado: false  
-			, 
-			Estudiante ->  Número único: 51516, Cédula de Identidad: 16516, Nombre: dfasfg, Carrera: sdfag, Fecha de Nacimiento: Mon Jul 05 16:07:33 COT 2021, Estado: false  
-			]
-Materia -> Código: 15616   Nombre: sdfa, Créditos: 5, Aula: asdf, Estado: false
-			Lista de estudiantes:
-			[
-			Estudiante ->  Número único: 51651, Cédula de Identidad: 156165, Nombre: dsafas, Carrera: 1ssdfa, Fecha de Nacimiento: Mon Jul 05 16:09:28 COT 2021, Estado: false  
-			]
 Materia -> Código: 001  Nombre: calculo, Créditos: 6, Aula: A1, Estado: false
 			Lista de estudiantes:
 			[
-			Estudiante ->  Número único: 201620469, Cédula de Identidad: 1726264961, Nombre: Andres Garcia, Carrera: Software, Fecha de Nacimiento: Mon Jul 05 18:30:46 COT 2021, Estado: false  
+			Estudiante ->  Número único: 201620469, Cédula de Identidad: 1726264961, Nombre: Andrés García, Carrera: Computación, Fecha de Nacimiento: Mon Jul 05 18:49:33 COT 2021, Estado: true  
 			, 
-			Estudiante ->  Número único: 25461, Cédula de Identidad: 1651561, Nombre: sadfas, Carrera: asdfasd, Fecha de Nacimiento: Mon Jul 05 18:30:57 COT 2021, Estado: false  
+			Estudiante ->  Número único: 1561561, Cédula de Identidad: 10651651, Nombre: asdfas dfasd, Carrera: sdfasdf, Fecha de Nacimiento: Mon Jul 05 18:49:44 COT 2021, Estado: false  
 			]
-Materia -> Código: 002  Nombre: we, Créditos: 6, Aula: asdfasfd, Estado: false
+Materia -> Código: 001  Nombre: asdf, Créditos: 6, Aula: 4sdaf, Estado: false
 			Lista de estudiantes:
 			[
-			Estudiante ->  Número único: 4564, Cédula de Identidad: 6546545, Nombre: asdfasd, Carrera: sdafas, Fecha de Nacimiento: Mon Jul 05 18:31:25 COT 2021, Estado: false  
+			Estudiante ->  Número único: 156, Cédula de Identidad: fasdf, Nombre: sdfasd, Carrera: sdfsaf, Fecha de Nacimiento: Mon Jul 05 18:51:02 COT 2021, Estado: false  
+			]
+Materia -> Código: 002  Nombre: web, Créditos: 5, Aula: dsfgdf, Estado: false
+			Lista de estudiantes:
+			[
+			Estudiante ->  Número único: 51651, Cédula de Identidad: 165165, Nombre: dsfgs, Carrera: dfgsdg, Fecha de Nacimiento: Mon Jul 05 18:52:07 COT 2021, Estado: false  
 			]
