@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
 import android.widget.Button
-import androidx.appcompat.app.AppCompatDialogFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 //     Botón para ir a la Actividad ACicloVida
         val btnIrACicloVida = findViewById<Button>(
             R.id.btnCicloVida
@@ -52,6 +52,18 @@ class MainActivity : AppCompatActivity() {
             )
             startActivityForResult(intentConRespuesta, CODIGO_RESPUESTA_INTENT_IMPLICITO)
         }
+
+//     Botón para ir a la Base de Datos
+        val btntrabajoBDD = findViewById<Button>(
+            R.id.btnTrabajoBDD
+        )
+
+        btntrabajoBDD.setOnClickListener{
+            abrirActividad(ETrabajoEnClaseBDD::class.java)
+        }
+
+
+
     }
 
     fun abrirActividad(

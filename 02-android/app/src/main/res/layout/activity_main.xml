@@ -65,4 +65,14 @@
         app:layout_constraintStart_toStartOf="@+id/btnIrIntent"
         app:layout_constraintTop_toBottomOf="@+id/btnIrIntent" />
 
+    <Button
+        android:id="@+id/btnTrabajoBDD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:text="Base de Datos"
+        app:layout_constraintBottom_toTopOf="@+id/btnCicloVida"
+        app:layout_constraintEnd_toEndOf="@+id/btnCicloVida"
+        app:layout_constraintStart_toStartOf="@+id/btnCicloVida" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
