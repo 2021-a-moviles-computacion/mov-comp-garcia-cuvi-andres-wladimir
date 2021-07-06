@@ -95,35 +95,7 @@ class Materia {
             }
         }
     }
-
-   /* fun replace() {
-        JOptionPane.showMessageDialog(
-            null,
-            "Aquí puede ver los nombres de " +
-                    "las Materias para saber cual desea actualizar: \n" +
-                    "$materias"
-        )
-        val consulta = JOptionPane.showInputDialog("Ingrese el nombre de la materia que desea modificar")
-        val campo = JOptionPane.showInputDialog("Ingrese campo de la materia que desea actalizar")
-        val datoActualizado = JOptionPane.showInputDialog("Ingrese la actualización del campo")
-        materias.forEach { materia ->
-            if (materia.nombre == consulta) {
-                materias.set(0, materia)
-                JOptionPane.showMessageDialog(
-                    null,
-                    "---MATERIAS ACTUALIZADAS ---" +
-                            "$materias"
-                )
-            } else if (materia.nombre != consulta) {
-                JOptionPane.showMessageDialog(
-                    null,
-                    "No se encuentra esa materia"
-
-                )
-            }
-        }
-    }*/
-
+    
     fun edit(
         nombre: String,
         datoEditar: String,

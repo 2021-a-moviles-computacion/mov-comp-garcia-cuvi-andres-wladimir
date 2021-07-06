@@ -34,6 +34,10 @@ class Estudiante {
         activo=intToBoolean(aux)
     }
 
+    fun search(){
+
+    }
+
     fun intToBoolean(valor: Int): Boolean {
         if (valor == 1) {
             return false
