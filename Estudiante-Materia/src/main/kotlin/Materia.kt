@@ -1,7 +1,7 @@
 import javax.swing.JOptionPane
 
 
-class Materia{
+class Materia {
 
     var codigo: String = ""
     var nombre: String = ""
@@ -12,10 +12,9 @@ class Materia{
     var materias: ArrayList<Materia> = arrayListOf()
 
 
-
-    fun insert (materia: Materia){
+    fun insert(materia: Materia) {
         materias.add(materia)
-        println("IIINIIICIOOOO"+materias+"FFIIIIINNN")
+        println("IIINIIICIOOOO" + materias + "FFIIIIINNN")
     }
 
     fun setMateria() {
@@ -26,7 +25,7 @@ class Materia{
         creditos = JOptionPane.showInputDialog("Ingrese el número de créditos").toInt()
         aula = JOptionPane.showInputDialog("Ingrese la ubicacición (Aula)")
         materiaActiva = JOptionPane.showInputDialog("Ingrese si está activa (true/false)").toBoolean()
-        JOptionPane.showMessageDialog(null,"Se procede al registro de estudiantes de esta materia...")
+        JOptionPane.showMessageDialog(null, "Se procede al registro de estudiantes de esta materia...")
         do {
             val estudiante = Estudiante()
             estudiante.setEstudiante()
@@ -43,16 +42,18 @@ class Materia{
     }
 
 
-    fun search(consulta: String): List<Materia>{
+    fun search(consulta: String): List<Materia> {
         val filteredList = ArrayList<Materia>()
-        materias.forEach{materia ->
-            if (materia.nombre ==  consulta){
+        materias.forEach { materia ->
+            if (materia.nombre == consulta) {
                 filteredList.add(materia)
-            }else{
+            } else if (materia.nombre != consulta) {
                 JOptionPane.showMessageDialog(
                     null,
                     "No se encuentra esa materia"
+
                 )
+
             }
 
 
@@ -60,11 +61,37 @@ class Materia{
         return filteredList
     }
 
+    fun remove() {
 
+        JOptionPane.showMessageDialog(
+            null,
+            "Aquí puede ver los nombres de " +
+                    "las Materias para saber cual desea eliminar: \n" +
+                    "$materias"
+        )
+        val consulta = JOptionPane.showInputDialog("Ingrese el nombre de la materia que desea eliminar")
+        materias.forEach { materia ->
+            if (materia.nombre == consulta) {
+                materias.remove(materia)
+                JOptionPane.showMessageDialog(
+                    null,
+                    "---MATERIAS ACTUALIZADAS ---" +
+                            "$materias"
+                )
+            } else if (materia.nombre != consulta) {
+                JOptionPane.showMessageDialog(
+                    null,
+                    "No se encuentra esa materia"
+
+                )
+            }
+        }
+    }
 
 
     override fun toString(): String {
-        return "Materia -> Código: $codigo  Nombre: $nombre, Créditos: $creditos, Aula: $aula, Estado: $materiaActiva" +
+        return "Materia -> Código: $codigo  Nombre: $nombre, Créditos: " +
+                "$creditos, Aula: $aula, Estado: $materiaActiva" +
                 "\n\t\t\tLista de estudiantes:\n\t\t\t$estudiantes"
     }
 

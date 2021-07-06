@@ -1,0 +1,6 @@
+
+Materia -> Código: 001  Nombre: calculo, Créditos: 4, Aula: asdf, Estado: false
+			Lista de estudiantes:
+			[
+			Estudiante ->  Número único: 446, Cédula de Identidad: 46846, Nombre: sdfasdf, Carrera: dsaf, Fecha de Nacimiento: Mon Jul 05 21:37:41 COT 2021, Estado: false  
+			]

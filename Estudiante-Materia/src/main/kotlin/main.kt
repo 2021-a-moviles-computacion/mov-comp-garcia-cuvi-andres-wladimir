@@ -2,17 +2,17 @@ import javax.swing.JOptionPane
 
 fun main(args: Array<String>) {
 
-
+    var listaMateria: Materia = Materia()
     var arc = ManejoArchivos()
     arc.read()
-    menuEstructurado()
+    menuEstructurado(listaMateria)
     arc.read()
 
 
 }
 
 
-fun menuEstructurado() {
+fun menuEstructurado(listaMateria: Materia) {
 
     var select = -1 //opción elegida del usuario
     while (select != 0) {
@@ -31,7 +31,7 @@ fun menuEstructurado() {
             select = lectura.toInt()
             when (select) {
                 1 -> {
-                    menuMaterias()
+                    menuMaterias(listaMateria)
                 }
                 2 -> {
                     menuEstudiantes()
@@ -46,8 +46,8 @@ fun menuEstructurado() {
 }
 
 
-fun menuMaterias() {
-    var listaMateria: Materia = Materia()
+fun menuMaterias(listaMateria: Materia) {
+
     //Mientras la opción elegida sea 0, preguntamos al usuario
     var select = -1
     while (select != 0) {
@@ -83,7 +83,7 @@ fun menuMaterias() {
                     archivos.write(salida)
                 }
                 2 -> {
-                      val consulta = JOptionPane.showInputDialog("Ingrese el nombre de la materia que desea buscar")
+                    val consulta = JOptionPane.showInputDialog("Ingrese el nombre de la materia que desea buscar")
 
 
 
@@ -100,7 +100,7 @@ fun menuMaterias() {
 //                    )
                 }
                 4 -> {
-
+                    listaMateria.remove()
 //                    JOptionPane.showMessageDialog(
 //                        null,
 //                        "XD"
