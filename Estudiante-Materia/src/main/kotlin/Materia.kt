@@ -32,7 +32,7 @@ class Materia {
             "Estado",
             JOptionPane.YES_NO_OPTION
         )
-        materiaActiva=intToBoolean(aux)
+        materiaActiva = intToBoolean(aux)
         JOptionPane.showMessageDialog(null, "Se procede al registro de estudiantes de esta materia...")
         do {
             val estudiante = Estudiante()
@@ -96,7 +96,7 @@ class Materia {
         }
     }
 
-    fun replace(){
+   /* fun replace() {
         JOptionPane.showMessageDialog(
             null,
             "Aquí puede ver los nombres de " +
@@ -108,7 +108,7 @@ class Materia {
         val datoActualizado = JOptionPane.showInputDialog("Ingrese la actualización del campo")
         materias.forEach { materia ->
             if (materia.nombre == consulta) {
-                materias.set(0,materia)
+                materias.set(0, materia)
                 JOptionPane.showMessageDialog(
                     null,
                     "---MATERIAS ACTUALIZADAS ---" +
@@ -122,6 +122,40 @@ class Materia {
                 )
             }
         }
+    }*/
+
+    fun edit(
+        nombre: String,
+        datoEditar: String,
+        nuevoDato: String
+    ) {
+
+        val indice = indice(nombre)
+        val existeMateria = indice > -1
+        if (existeMateria) {
+            when (datoEditar) {
+                "codigo" -> {
+                    materias[indice].codigo = nuevoDato
+                }
+                "nombre" -> {
+                    materias[indice].nombre = nuevoDato
+                }
+                "aula" -> {
+                    materias[indice].aula = nuevoDato
+                }
+                "creditos" -> {
+                    materias[indice].creditos = nuevoDato.toInt()
+                }
+                else -> {
+                    JOptionPane.showMessageDialog(null, "No se encontró la materia solicitada ->  ${datoEditar}")
+                }
+            }
+        }
+        JOptionPane.showMessageDialog(
+            null,
+            "---MATERIAS ACTUALIZADAS ---" +
+                    "$materias"
+        )
     }
 
     fun intToBoolean(valor: Int): Boolean {
@@ -131,6 +165,19 @@ class Materia {
             return true
         }
         return false
+    }
+
+    fun indice(nombre: String): Int {
+        val respuesta = materias.filter { materia: Materia ->
+            return@filter materia.nombre == nombre
+        }
+        val existeMateria = respuesta.size > 0
+        if (!existeMateria) {
+            JOptionPane.showMessageDialog(null, "No se encontro la empresa  ${nombre}")
+            return -1
+        }
+        return materias.indexOf(respuesta[0])
+
     }
 
     override fun toString(): String {

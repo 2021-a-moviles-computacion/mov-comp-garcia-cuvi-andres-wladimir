@@ -90,11 +90,17 @@ fun menuMaterias(listaMateria: Materia) {
                     )
                 }
                 3 -> {
-//
-//                    JOptionPane.showMessageDialog(
-//                        null,
-//                      "XD"
-//                    )
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "Aquí puede ver los nombres de " +
+                                "las Materias para saber cual desea actualizar: \n" +
+                                "${listaMateria.materias}"
+                    )
+                    val nombre = JOptionPane.showInputDialog("Ingrese nombre de la materia que desea modificar")
+                    val datoAModificar = JOptionPane.showInputDialog("Ingrese el campo de la materia que desea modificar")
+                    val nuevoValor = JOptionPane.showInputDialog("Ingrese el contenido modificado")
+                    listaMateria.edit(nombre,datoAModificar, nuevoValor)
+
                 }
                 4 -> {
                     listaMateria.remove()

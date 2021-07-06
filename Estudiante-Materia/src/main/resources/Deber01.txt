@@ -19,3 +19,8 @@ Materia -> Código: 001  Nombre: web, Créditos: 5, Aula: sdfasd, Estado: false
 			[
 			Estudiante ->  Número único: 56415, Cédula de Identidad: 1651sdfa, Nombre: asdfasd, Carrera: dasfas, Fecha de Nacimiento: Mon Jul 05 21:47:57 COT 2021, Estado: false  
 			]
+Materia -> Código: 001  Nombre: web, Créditos: 6, Aula: 001, Estado: true
+			Lista de estudiantes:
+			[
+			Estudiante ->  Número único: 1516515, Cédula de Identidad: 1651651, Nombre: asdfasd sadf as, Carrera: fsdfa, Fecha de Nacimiento: Tue Jul 06 18:48:31 COT 2021, Estado: false  
+			]
