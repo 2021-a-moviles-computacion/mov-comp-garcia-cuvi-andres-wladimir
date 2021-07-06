@@ -74,6 +74,20 @@ class ESqliteHelperUsuario(
             return usuarioEncontrado
         }
 
+        fun eliminarUsuarioFormulario (id: Int): Boolean {
+
+            //val conexionEscritura = this.writableDatabase
+            val conexionEscritura = writableDatabase
+            var resultadoEliminacion = conexionEscritura
+                .delete(
+                    "USUARIO",
+                    "id=?",
+                    arrayOf()
+                )
+            conexionEscritura.close()
+            return if (resultadoEliminacion.toInt() == -1) false else true
+        }
+
     }
 
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
