@@ -84,9 +84,6 @@ fun menuMaterias(listaMateria: Materia) {
                 }
                 2 -> {
                     val consulta = JOptionPane.showInputDialog("Ingrese el nombre de la materia que desea buscar")
-
-
-
                     JOptionPane.showMessageDialog(
                         null,
                         listaMateria.search(consulta)

@@ -19,12 +19,20 @@ class Materia {
 
     fun setMateria() {
         var opcion: Int
+        var aux: Int
 
         codigo = JOptionPane.showInputDialog("Ingrese el código de la Materia")
         nombre = JOptionPane.showInputDialog("Ingrese el nombre de la Materia")
         creditos = JOptionPane.showInputDialog("Ingrese el número de créditos").toInt()
         aula = JOptionPane.showInputDialog("Ingrese la ubicacición (Aula)")
-        materiaActiva = JOptionPane.showInputDialog("Ingrese si está activa (true/false)").toBoolean()
+        //materiaActiva = JOptionPane.showInputDialog("Ingrese si está activa (true/false)").toBoolean()
+        aux = JOptionPane.showConfirmDialog(
+            null,
+            "Registre el estado de la materia (activa -> Sí - inactiva -> No)",
+            "Estado",
+            JOptionPane.YES_NO_OPTION
+        )
+        materiaActiva=intToBoolean(aux)
         JOptionPane.showMessageDialog(null, "Se procede al registro de estudiantes de esta materia...")
         do {
             val estudiante = Estudiante()
@@ -88,6 +96,42 @@ class Materia {
         }
     }
 
+    fun replace(){
+        JOptionPane.showMessageDialog(
+            null,
+            "Aquí puede ver los nombres de " +
+                    "las Materias para saber cual desea actualizar: \n" +
+                    "$materias"
+        )
+        val consulta = JOptionPane.showInputDialog("Ingrese el nombre de la materia que desea modificar")
+        val campo = JOptionPane.showInputDialog("Ingrese campo de la materia que desea actalizar")
+        val datoActualizado = JOptionPane.showInputDialog("Ingrese la actualización del campo")
+        materias.forEach { materia ->
+            if (materia.nombre == consulta) {
+                materias.set(0,materia)
+                JOptionPane.showMessageDialog(
+                    null,
+                    "---MATERIAS ACTUALIZADAS ---" +
+                            "$materias"
+                )
+            } else if (materia.nombre != consulta) {
+                JOptionPane.showMessageDialog(
+                    null,
+                    "No se encuentra esa materia"
+
+                )
+            }
+        }
+    }
+
+    fun intToBoolean(valor: Int): Boolean {
+        if (valor == 1) {
+            return false
+        } else if (valor == 0) {
+            return true
+        }
+        return false
+    }
 
     override fun toString(): String {
         return "Materia -> Código: $codigo  Nombre: $nombre, Créditos: " +

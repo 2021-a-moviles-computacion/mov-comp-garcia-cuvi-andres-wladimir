@@ -15,57 +15,33 @@ class Estudiante {
 
     constructor()
 
-//    fun setEstudiante() {
-//        println("Creando un nuevo Estudiante...")
-//        println("Ingrese el número único: ")
-//        numeroUnico = readLine()!!.toInt()
-//        println("Ingrese la cédula de identidad: ")
-//        cedulaIdentidad = readLine().toString()
-//        println("Ingrese el nombre: ")
-//        nombre = readLine().toString()
-//        println("Ingrese la carrera: ")
-//        carrera = readLine().toString()
-//        println("Ingrese la fecha de nacimiento con formato (dd/mm/aaaa): ")
-//        fechaNacimiento = Date()
-//        println("Ingrese si está activo (true/false): ")
-//        activo = readLine().toBoolean()
-//    }
+
 
     fun setEstudiante(){
+        var aux: Int
         numeroUnico = JOptionPane.showInputDialog("Ingrese el número único: ").toInt()
         cedulaIdentidad =  JOptionPane.showInputDialog("Ingrese la cédula de identidad: ")
         nombre =  JOptionPane.showInputDialog("Ingrese el nombre y apellido: ")
         carrera =  JOptionPane.showInputDialog("Ingrese la carrrera: ")
         fechaNacimiento =  Date()
-        activo =JOptionPane.showInputDialog("Ingrese si está activo (true/false): ").toBoolean()
+        //activo =JOptionPane.showInputDialog("Ingrese si está activo (true/false): ").toBoolean()
+        aux = JOptionPane.showConfirmDialog(
+            null,
+            "Registre si el estudiante se encuentra activo (activo -> Sí - inactivo -> No)",
+            "Estado",
+            JOptionPane.YES_NO_OPTION
+        )
+        activo=intToBoolean(aux)
     }
 
-
-
-//    fun insert(estudiante: Estudiante){
-//        list.add(estudiante)
-//        println(list)
-//    }
-
-//    fun insert(){
-//
-//        println("Creando un nuevo Estudiante...")
-//        println("Ingrese el número único: ")
-//        numeroUnico = readLine()!!.toInt()
-//        println("Ingrese la cédula de identidad: ")
-//        cedulaIdentidad
-//        println("Ingrese el nombre: ")
-//        nombre
-//        println("Ingrese el apellido: ")
-//        apellido
-//        println("Ingrese la carrera: ")
-//        carrera
-//        println("Ingrese la fecha de nacimiento: ")
-//        fechaNacimiento
-//        println("Ingrese si está activo: ")
-//        activo
-//    }
-
+    fun intToBoolean(valor: Int): Boolean {
+        if (valor == 1) {
+            return false
+        } else if (valor == 0) {
+            return true
+        }
+        return false
+    }
 
 
     override fun toString(): String {
