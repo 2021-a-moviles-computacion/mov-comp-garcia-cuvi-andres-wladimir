@@ -86,10 +86,11 @@ class ESqliteHelperUsuario(
             .delete(
                 "USUARIO",
                 "id=?",
-                arrayOf()
+                arrayOf(id.toString())
             )
         conexionEscritura.close()
         return if (resultadoEliminacion.toInt() == -1) false else true
+        //return resultadoEliminacion.toInt() != -1
     }
 
     fun actualizarUsuarioFormulario(
