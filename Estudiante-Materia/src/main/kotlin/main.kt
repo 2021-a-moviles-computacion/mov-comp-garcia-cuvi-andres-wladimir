@@ -3,16 +3,17 @@ import javax.swing.JOptionPane
 fun main(args: Array<String>) {
 
     var listaMateria: Materia = Materia()
+    var listaEstudiante: Estudiante = Estudiante()
     var arc = ManejoArchivos()
     arc.read()
-    menuEstructurado(listaMateria)
+    menuEstructurado(listaMateria, listaEstudiante)
     arc.read()
 
 
 }
 
 
-fun menuEstructurado(listaMateria: Materia) {
+fun menuEstructurado(listaMateria: Materia, listaEstudiante: Estudiante) {
 
     var select = -1 //opción elegida del usuario
     while (select != 0) {
@@ -34,7 +35,7 @@ fun menuEstructurado(listaMateria: Materia) {
                     menuMaterias(listaMateria)
                 }
                 2 -> {
-                    menuEstudiantes()
+                    menuEstudiantes(listaEstudiante, listaMateria)
                 }
                 0 -> JOptionPane.showMessageDialog(null, "Adios!")
                 else -> JOptionPane.showMessageDialog(null, "Número no reconocido")
@@ -97,9 +98,10 @@ fun menuMaterias(listaMateria: Materia) {
                                 "${listaMateria.materias}"
                     )
                     val nombre = JOptionPane.showInputDialog("Ingrese nombre de la materia que desea modificar")
-                    val datoAModificar = JOptionPane.showInputDialog("Ingrese el campo de la materia que desea modificar")
+                    val datoAModificar =
+                        JOptionPane.showInputDialog("Ingrese el campo de la materia que desea modificar")
                     val nuevoValor = JOptionPane.showInputDialog("Ingrese el contenido modificado")
-                    listaMateria.edit(nombre,datoAModificar, nuevoValor)
+                    listaMateria.edit(nombre, datoAModificar, nuevoValor)
 
                 }
                 4 -> {
@@ -119,7 +121,7 @@ fun menuMaterias(listaMateria: Materia) {
 }
 
 
-fun menuEstudiantes() {
+fun menuEstudiantes(listaEstudiante: Estudiante, listaMateria: Materia) {
     //Mientras la opción elegida sea 0, preguntamos al usuario
     var select = -1
     while (select != 0) {
@@ -157,11 +159,32 @@ fun menuEstudiantes() {
                 }
                 2 -> {
 
+                    val campo = JOptionPane.showInputDialog("Ingrese el campo por el que desea realizar la búsqueda")
+                    val consulta = JOptionPane.showInputDialog("Ingrese el valor que quiere buscar")
+                    val estudiantesHallados = listaEstudiante.search(campo, consulta, listaMateria.materias)
+                    var salida = ""
+                    estudiantesHallados.forEach { list ->
+                        val materia: Materia = list?.get(0) as Materia
+                        val listaEstudiantes: List<Estudiante> = list?.get(1) as List<Estudiante>
+                        val nombreEstudiantes = listaEstudiantes.map {
+                            estudiante: Estudiante ->
+                            val listaRespuestas = mutableMapOf<String, Any>()
+                            listaRespuestas.put("numeroUnico", estudiante.numeroUnico)
+                            listaRespuestas.put("cedulaIdentidad", estudiante.cedulaIdentidad)
+                            listaRespuestas.put("nombre", estudiante.nombre)
+                            listaRespuestas.put("carrera", estudiante.carrera)
+                            listaRespuestas.put("fechaNacimiento", estudiante.fechaNacimiento)
+                            listaRespuestas.put("activo", estudiante.activo)
+                            return@map listaRespuestas
+                        }
+                        salida += "Materia: ${materia.nombre}\n" +
+                                "Estudiantes: ${nombreEstudiantes}\n"
+                    }
 
-//                    JOptionPane.showMessageDialog(
-//                        null,
-//                        "XD"
-//                    )
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "$salida"
+                    )
                 }
                 3 -> {
 //
@@ -171,11 +194,13 @@ fun menuEstudiantes() {
 //                    )
                 }
                 4 -> {
-
-//                    JOptionPane.showMessageDialog(
-//                        null,
-//                       "XD"
-//                    )
+                    val cedula = JOptionPane.showInputDialog("Ingrese el numero de cédula del estudiante que desea eliminar")
+                    val salida = listaEstudiante.remove(cedula, listaMateria.materias)
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "---MATERIAS ACTUALIZADAS ---" +
+                                "$salida    "
+                    )
                 }
                 0 -> JOptionPane.showMessageDialog(null, "Adios!")
                 else -> JOptionPane.showMessageDialog(null, "Número no reconocido")

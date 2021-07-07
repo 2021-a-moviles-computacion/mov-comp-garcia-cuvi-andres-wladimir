@@ -59,12 +59,8 @@ class Materia {
                 JOptionPane.showMessageDialog(
                     null,
                     "No se encuentra esa materia"
-
                 )
-
             }
-
-
         }
         return filteredList
     }
@@ -95,7 +91,7 @@ class Materia {
             }
         }
     }
-    
+
     fun edit(
         nombre: String,
         datoEditar: String,
