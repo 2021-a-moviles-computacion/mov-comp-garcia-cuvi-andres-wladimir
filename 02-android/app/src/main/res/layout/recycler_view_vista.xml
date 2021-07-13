@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.251" />
+
+    <TextView
+        android:id="@+id/tvCedula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="164dp"
+        android:text="Cedula"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNombre"
+        app:layout_constraintStart_toEndOf="@+id/tvNombre"
+        app:layout_constraintTop_toTopOf="@+id/tvNombre"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/tvLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/tvNombre"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="@+id/tvNombre"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
+
+    <Button
+        android:id="@+id/btnDarLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DAR LIKE"
+        app:layout_constraintBottom_toBottomOf="@+id/tvLikes"
+        app:layout_constraintEnd_toEndOf="@+id/tvCedula"
+        app:layout_constraintStart_toStartOf="@+id/tvCedula"
+        app:layout_constraintTop_toTopOf="@+id/tvLikes" />
+</androidx.constraintlayout.widget.ConstraintLayout>

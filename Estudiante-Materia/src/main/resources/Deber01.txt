@@ -1,0 +1,15 @@
+
+Materia -> Código: 001  Nombre: web, Créditos: 6, Aula: A1, Estado: true
+			Lista de estudiantes:
+			[
+			Estudiante ->  Número único: 201620469, Cédula de Identidad: 1726264961, Nombre: Andrés García, Carrera: Computacion, Fecha de Nacimiento: Tue Jul 06 23:50:13 COT 2021, Estado: true  
+			, 
+			Estudiante ->  Número único: 123456, Cédula de Identidad: 123456, Nombre: Pepito, Carrera: software, Fecha de Nacimiento: Tue Jul 06 23:50:30 COT 2021, Estado: false  
+			]
+Materia -> Código: 002  Nombre: moviles, Créditos: 6, Aula: B1, Estado: true
+			Lista de estudiantes:
+			[
+			Estudiante ->  Número único: 789456, Cédula de Identidad: 879456, Nombre: Jaime Roldos, Carrera: Computacion, Fecha de Nacimiento: Tue Jul 06 23:51:35 COT 2021, Estado: true  
+			, 
+			Estudiante ->  Número único: 201620479, Cédula de Identidad: 17262649653, Nombre: Daniel García, Carrera: Software, Fecha de Nacimiento: Tue Jul 06 23:52:03 COT 2021, Estado: true  
+			]
