@@ -75,4 +75,25 @@
         app:layout_constraintEnd_toEndOf="@+id/btnCicloVida"
         app:layout_constraintStart_toStartOf="@+id/btnCicloVida" />
 
+    <Button
+        android:id="@+id/btnIrRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="recycler view"
+        app:layout_constraintBottom_toTopOf="@+id/btnTrabajoBDD"
+        app:layout_constraintEnd_toEndOf="@+id/btnTrabajoBDD"
+        app:layout_constraintStart_toStartOf="@+id/btnTrabajoBDD" />
+
+    <Button
+        android:id="@+id/btnIrHttp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="HTTP"
+        app:layout_constraintEnd_toEndOf="@+id/btnIrIntentImplicito"
+        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintStart_toStartOf="@+id/btnIrIntentImplicito"
+        app:layout_constraintTop_toBottomOf="@+id/btnIrIntentImplicito" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

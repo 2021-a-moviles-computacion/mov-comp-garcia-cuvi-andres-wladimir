@@ -6,7 +6,7 @@ import android.os.Parcelable
 class DLiga(
     val nombre: String?,
     val descripcion: String?,
-    val liga: DLiga?
+    val liga: DLiga? = null
 ) : Parcelable{
     constructor(parcel: Parcel) : this(
         parcel.readString(),

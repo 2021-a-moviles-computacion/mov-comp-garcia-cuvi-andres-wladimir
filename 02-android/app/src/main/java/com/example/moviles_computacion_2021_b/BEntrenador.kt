@@ -4,11 +4,14 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class BEntrenador (val nombre: String?,
-                   val descripcion: String?) :Parcelable{
+                   val descripcion: String?,
+                   val liga: DLiga? = null
+) :Parcelable{
 
     constructor(parcel: Parcel) : this(
         parcel.readString(),
-        parcel.readString()
+        parcel.readString(),
+        parcel.readParcelable(DLiga::class.java.classLoader)
     ) {
     }
 
@@ -20,13 +23,14 @@ class BEntrenador (val nombre: String?,
         return 0
     }
 
-    override fun writeToParcel(parcel: Parcel?, p1: Int) {
+    override fun writeToParcel(parcel: Parcel?, flags: Int) {
 //        if(parcel != null){
 //            parcel.writeString(nombre)
 //            parcel.writeString(descripcion)
 //        }
         parcel?.writeString(nombre)
         parcel?.writeString(descripcion)
+        parcel?.writeParcelable(liga, flags)
 
     }
 
