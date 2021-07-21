@@ -62,7 +62,23 @@ class MainActivity : AppCompatActivity() {
             abrirActividad(ETrabajoEnClaseBDD::class.java)
         }
 
+//     Botón para ir al RecyclerView
+        val btnIrRecyclerView = findViewById<Button>(
+            R.id.btnIrRecyclerView
+        )
 
+        btnIrRecyclerView.setOnClickListener{
+            abrirActividadConParametros(GRecyclerView::class.java)
+        }
+
+        //     Botón para ir a HHttpActivity
+        val btnIrHttp = findViewById<Button>(
+            R.id.btnIrHttp
+        )
+
+        btnIrHttp.setOnClickListener{
+            abrirActividadConParametros(HHttpActivity::class.java)
+        }
 
     }
 
