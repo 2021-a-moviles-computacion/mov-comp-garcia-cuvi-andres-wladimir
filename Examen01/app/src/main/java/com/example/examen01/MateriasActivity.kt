@@ -21,6 +21,15 @@ class MateriasActivity : AppCompatActivity() {
         //Iniciar Recycler View
         iniciarRecyclerView(listaMateria,this,recyclerViewMateria)
 
+        //     Botón para ir al Formulario de Registro de Materias
+        val btnIrAFormularioRegistroMaterias = findViewById<Button>(
+            R.id.btnInsertarMaterias
+        )
+
+        btnIrAFormularioRegistroMaterias.setOnClickListener{
+            abrirActividad(MateriasFormularioRegistro::class.java)
+        }
+
     }
 
     fun iniciarRecyclerView(
@@ -40,4 +49,13 @@ class MateriasActivity : AppCompatActivity() {
     }
 
 
+    fun abrirActividad(
+        clase: Class<*>
+    ){
+        val intentExplicito = Intent(
+            this,
+            clase
+        )
+        this.startActivity(intentExplicito);
+    }
 }
