@@ -23,7 +23,7 @@
     <EditText
         android:id="@+id/edtxtCodigoMateria"
         android:layout_width="263dp"
-        android:layout_height="36dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Código"
@@ -37,7 +37,7 @@
     <EditText
         android:id="@+id/edtxtNombreMateria"
         android:layout_width="263dp"
-        android:layout_height="36dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Nombre"
@@ -51,7 +51,7 @@
     <EditText
         android:id="@+id/edtxtCreditosMateria"
         android:layout_width="263dp"
-        android:layout_height="36dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Créditos"
@@ -65,7 +65,7 @@
     <EditText
         android:id="@+id/edtxtAulaMateria"
         android:layout_width="263dp"
-        android:layout_height="36dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Aula"
@@ -78,13 +78,24 @@
     <CheckBox
         android:id="@+id/checkBoxEstadoMateria"
         android:layout_width="263dp"
-        android:layout_height="36dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="Estado (Activo / Inactivo)"
         app:layout_constraintEnd_toEndOf="@+id/edtxtAulaMateria"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edtxtAulaMateria"
         app:layout_constraintTop_toBottomOf="@+id/edtxtAulaMateria" />
+
+    <Button
+        android:id="@+id/btnCrearMateria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="CREAR"
+        app:layout_constraintEnd_toEndOf="@+id/checkBoxEstadoMateria"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/checkBoxEstadoMateria"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxEstadoMateria" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
