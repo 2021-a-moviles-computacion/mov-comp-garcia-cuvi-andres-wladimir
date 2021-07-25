@@ -4,11 +4,11 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class Materia (
-    val codigo: String?,
-    val nombre: String?,
-    val creditos: Int?,
-    val aula: String?,
-    val materiaActiva: Boolean
+    var codigo: String?,
+    var nombre: String?,
+    var creditos: Int?,
+    var aula: String?,
+    var materiaActiva: Boolean
 ) : Parcelable{
     constructor(parcel: Parcel) : this(
         parcel.readString(),

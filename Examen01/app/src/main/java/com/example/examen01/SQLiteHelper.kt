@@ -76,4 +76,78 @@ class SQLiteHelper(
         return if (resultadoEscritura.toInt() == -1) false else true
     }
 
+
+    /*fun consultarMateriaPorCodigo(codigo: String): Materia {
+        val scriptConsultarMateriaPorCodigo = "SELECT * FROM MATERIA WHERE CODIGOMATERIA = ${codigo}"
+        val baseDatosLectura = readableDatabase
+        val resultadoConsultaLectura = baseDatosLectura.rawQuery(
+            scriptConsultarMateriaPorCodigo,
+            null
+        )
+        val existeMateria = resultadoConsultaLectura.moveToFirst()
+        //val arregloUsuario = arrayListOf<EUsuarioBDD>()       //En caso de3 necesitar un arreglo de registros
+        val materiaEncontrada = Materia("", "", 0, "", true)
+        if (existeMateria) {
+            do {
+                val codigo = resultadoConsultaLectura.getString(1) //Columna indice 1 -> CODIGO
+                val nombre = resultadoConsultaLectura.getString(2) //Columna indice 2 -> NOMBRE
+                val creditos = resultadoConsultaLectura.getInt(3) //Columna indice 3 -> CREDITOS
+                val aula = resultadoConsultaLectura.getString(4) //Columna indice 4 -> AULA
+                val estado = (resultadoConsultaLectura.getInt(5))>0 //Columna indice 5 -> ESTADO
+
+                if (codigo != null) {
+                    materiaEncontrada.codigo = codigo
+                    materiaEncontrada.nombre = nombre
+                    materiaEncontrada.creditos = creditos
+                    materiaEncontrada.aula = aula
+                    materiaEncontrada.materiaActiva = estado
+                    //arregloUsuario.add(usuarioEncontrado)
+                }
+            } while (resultadoConsultaLectura.moveToNext())
+        }
+        resultadoConsultaLectura.close()
+        baseDatosLectura.close()
+
+        return materiaEncontrada
+    }
+*/
+
+    fun eliminarMateriaPorCodigo(codigo: String): Boolean {
+
+        //val conexionEscritura = this.writableDatabase
+        val conexionEscritura = writableDatabase
+        var resultadoEliminacion = conexionEscritura
+            .delete(
+                "MATERIA",
+                "CODIGOMATERIA=?",
+                arrayOf(codigo)
+            )
+        conexionEscritura.close()
+        return if (resultadoEliminacion.toInt() == -1) false else true
+        //return resultadoEliminacion.toInt() != -1
+    }
+
+    /*fun actualizarMateriaFormulario(
+        nombre: String,
+        descripcion: String,
+        idActualizar: Int
+    ): Boolean {
+        val conexionEscritura = writableDatabase
+        val valoresAActualizar = ContentValues()
+        valoresAActualizar.put("nombre", nombre)
+        valoresAActualizar.put("descripcion", descripcion)
+        val resultadoActualización = conexionEscritura
+            .update(
+                "USUARIO",
+                valoresAActualizar,
+                "id=?",
+                arrayOf(
+                    idActualizar.toString()
+                )
+            )
+        conexionEscritura.close()
+        return if (resultadoActualización.toInt() == -1) false else true
+    }
+*/
+
 }
