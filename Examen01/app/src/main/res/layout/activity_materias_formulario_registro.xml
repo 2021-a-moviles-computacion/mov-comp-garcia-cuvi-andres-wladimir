@@ -6,4 +6,85 @@
     android:layout_height="match_parent"
     tools:context=".MateriasFormularioRegistro">
 
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FORMULARIO DE REGISTRO DE MATERIAS"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.126" />
+
+    <EditText
+        android:id="@+id/edtxtCodigoMateria"
+        android:layout_width="263dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Código"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+
+    <EditText
+        android:id="@+id/edtxtNombreMateria"
+        android:layout_width="263dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtCodigoMateria"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edtxtCodigoMateria"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtCodigoMateria" />
+
+    <EditText
+        android:id="@+id/edtxtCreditosMateria"
+        android:layout_width="263dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Créditos"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtNombreMateria"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edtxtNombreMateria"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtNombreMateria" />
+
+    <EditText
+        android:id="@+id/edtxtAulaMateria"
+        android:layout_width="263dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Aula"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtCreditosMateria"
+        app:layout_constraintStart_toStartOf="@+id/edtxtCreditosMateria"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtCreditosMateria" />
+
+    <CheckBox
+        android:id="@+id/checkBoxEstadoMateria"
+        android:layout_width="263dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="36dp"
+        android:text="Estado (Activo / Inactivo)"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtAulaMateria"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edtxtAulaMateria"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtAulaMateria" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
