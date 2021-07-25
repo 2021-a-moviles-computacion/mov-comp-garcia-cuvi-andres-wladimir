@@ -97,7 +97,7 @@ class SQLiteHelper(
                 val estado = (resultadoConsultaLectura.getInt(5)) > 0 //Columna indice 5 -> ESTADO
 
                 if (codigo != null) {
-                    listaMateria.add(Materia(codigo,nombre,creditos,aula,estado))
+                    listaMateria.add(Materia(codigo, nombre, creditos, aula, estado))
                 }
             } while (resultadoConsultaLectura.moveToNext())
         }

@@ -1,9 +1,13 @@
 package com.example.examen01
 
+import android.app.Notification
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.widget.LinearLayoutCompat
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
 class AdapterMaterias (
@@ -18,6 +22,7 @@ class AdapterMaterias (
         val aulaTextView: TextView
         val creditosTextView: TextView
         val estadoTextView: TextView
+        val linearLayoutId: LinearLayoutCompat
 
 
         init {
@@ -26,6 +31,7 @@ class AdapterMaterias (
             aulaTextView = view.findViewById(R.id.tvAulaMateria)
             creditosTextView = view.findViewById(R.id.tvCreditosMateria)
             estadoTextView = view.findViewById(R.id.tvEstadoMateria)
+            linearLayoutId = view.findViewById(R.id.LinearLayoutIdMaterias)
         }
     }
 
