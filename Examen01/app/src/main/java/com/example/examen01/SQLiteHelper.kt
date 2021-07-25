@@ -58,14 +58,14 @@ class SQLiteHelper(
         creditos: Int,
         aula: String,
         estado: Boolean
-    ): Boolean{
+    ): Boolean {
         val conexionEscrituta = writableDatabase
         val valoresAGuardar = ContentValues()
-        valoresAGuardar.put("CODIGOMATERIA",codigo)
-        valoresAGuardar.put("NOMBREMATERIA",nombre)
-        valoresAGuardar.put("CREDITOSMATERIA",creditos)
-        valoresAGuardar.put("AULAMATERIA",aula)
-        valoresAGuardar.put("ESTADOMATERIA",estado)
+        valoresAGuardar.put("CODIGOMATERIA", codigo)
+        valoresAGuardar.put("NOMBREMATERIA", nombre)
+        valoresAGuardar.put("CREDITOSMATERIA", creditos)
+        valoresAGuardar.put("AULAMATERIA", aula)
+        valoresAGuardar.put("ESTADOMATERIA", estado)
         val resultadoEscritura: Long = conexionEscrituta
             .insert(
                 "MATERIA",
@@ -74,6 +74,38 @@ class SQLiteHelper(
             )
         conexionEscrituta.close()
         return if (resultadoEscritura.toInt() == -1) false else true
+    }
+
+
+    fun consultaMateriaTotal(): ArrayList<Materia> {
+        val scriptConsultarMateriaPorCodigo = "SELECT * FROM MATERIA"
+        val baseDatosLectura = readableDatabase
+        val listaMateria = arrayListOf<Materia>()
+        val materiaEncontrada = Materia("", "", 0, "", true)
+        val resultadoConsultaLectura = baseDatosLectura.rawQuery(
+            scriptConsultarMateriaPorCodigo,
+            null
+        )
+
+        val existeMateria = resultadoConsultaLectura.moveToFirst()
+        if (existeMateria) {
+            do {
+                val codigo = resultadoConsultaLectura.getString(1) //Columna indice 1 -> CODIGO
+                val nombre = resultadoConsultaLectura.getString(2) //Columna indice 2 -> NOMBRE
+                val creditos = resultadoConsultaLectura.getInt(3) //Columna indice 3 -> CREDITOS
+                val aula = resultadoConsultaLectura.getString(4) //Columna indice 4 -> AULA
+                val estado = (resultadoConsultaLectura.getInt(5)) > 0 //Columna indice 5 -> ESTADO
+
+                if (codigo != null) {
+                    listaMateria.add(Materia(codigo,nombre,creditos,aula,estado))
+                }
+            } while (resultadoConsultaLectura.moveToNext())
+        }
+
+        resultadoConsultaLectura.close()
+        baseDatosLectura.close()
+        Log.i("bdd", resultadoConsultaLectura.toString())
+        return listaMateria
     }
 
 

@@ -3,7 +3,7 @@ package com.example.examen01
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.RecoverySystem
+import android.util.Log
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 
@@ -12,9 +12,17 @@ class MateriasActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_materias)
 
-        val listaMateria = arrayListOf<Materia>()
-        listaMateria.add(Materia("ICCR201","Arquitectura de computadores",6,"B1",true))
-        listaMateria.add(Materia("ICCR733","Aplicaciones Web",6,"A1",true))
+        var listaMateria = arrayListOf<Materia>()
+
+        BaseDeDatos.TablaMateria = SQLiteHelper(this)
+        if (BaseDeDatos.TablaMateria != null) {
+            listaMateria = BaseDeDatos.TablaMateria!!.consultaMateriaTotal()
+        }
+
+
+
+      /*  listaMateria.add(Materia("ICCR201","Arquitectura de computadores",6,"B1",true))
+        listaMateria.add(Materia("ICCR733","Aplicaciones Web",6,"A1",true))*/
 
         val recyclerViewMateria = findViewById<RecyclerView>(R.id.rvListaMaterias)
 
