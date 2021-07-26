@@ -98,7 +98,7 @@ class SQLiteHelper(
                 val estado = (resultadoConsultaLectura.getInt(5)) > 0 //Columna indice 5 -> ESTADO
 
                 if (codigo != null) {
-                    listaMateria.add(Materia(codigo, nombre, creditos, aula, estado))
+                    listaMateria.add(Materia(id,codigo, nombre, creditos, aula, estado))
                 }
             } while (resultadoConsultaLectura.moveToNext())
         }
@@ -120,7 +120,7 @@ class SQLiteHelper(
         )
         val existeMateria = resultadoConsultaLectura.moveToFirst()
         //val arregloUsuario = arrayListOf<EUsuarioBDD>()       //En caso de3 necesitar un arreglo de registros
-        val materiaEncontrada = Materia("", "", 0, "", true)
+        val materiaEncontrada = Materia(0,"", "", 0, "", true)
         if (existeMateria) {
             do {
                 val codigo = resultadoConsultaLectura.getString(1) //Columna indice 1 -> CODIGO
@@ -186,11 +186,13 @@ class SQLiteHelper(
 
     }
 
-/*fun actualizarMateriaFormulario(
+/*
+fun actualizarMateriaFormulario(
     codigo: String,
     nombre: String,
     creditos: Int,
     aula: String,
+    estado: Boolean
 ): Boolean {
     val conexionEscritura = writableDatabase
     val valoresAActualizar = ContentValues()
@@ -207,6 +209,7 @@ class SQLiteHelper(
         )
     conexionEscritura.close()
     return if (resultadoActualización.toInt() == -1) false else true
-}*/
+}
+*/
 
 }

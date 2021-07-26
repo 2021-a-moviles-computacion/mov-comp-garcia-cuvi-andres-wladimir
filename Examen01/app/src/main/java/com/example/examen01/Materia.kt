@@ -4,6 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class Materia (
+    val id: Int,
     var codigo: String?,
     var nombre: String?,
     var creditos: Int?,
@@ -11,15 +12,18 @@ class Materia (
     var materiaActiva: Boolean
 ) : Parcelable{
     constructor(parcel: Parcel) : this(
+        (parcel.readValue(Int::class.java.classLoader) as? Int)!!,
         parcel.readString(),
         parcel.readString(),
         parcel.readValue(Int::class.java.classLoader) as? Int,
         parcel.readString(),
         parcel.readByte() != 0.toByte()
     ) {
+
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeValue(id)
         parcel.writeString(codigo)
         parcel.writeString(nombre)
         parcel.writeValue(creditos)

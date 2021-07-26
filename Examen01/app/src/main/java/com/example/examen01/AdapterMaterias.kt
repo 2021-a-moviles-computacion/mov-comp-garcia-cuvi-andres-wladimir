@@ -54,7 +54,8 @@ class AdapterMaterias(
                     //Eliminar
                     R.id.menuEliminarMaterias -> {
 
-                        BaseDeDatos.TablaMateria!!.eliminarMateriaPorCodigo(idItem.codigo.toString())
+                        //BaseDeDatos.TablaMateria!!.eliminarMateriaPorCodigo(idItem.codigo.toString())
+                        BaseDeDatos.TablaMateria!!.eliminarMateriaPorId(idItem.id)
                         Toast.makeText(
                             contexto,
                             "Eliminar clicked -- ${adapterPosition}",
