@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
+import android.widget.Toast
 
 class SQLiteHelper(
     contexto: Context??
@@ -155,8 +156,13 @@ class SQLiteHelper(
                 arrayOf(codigo)
             )
         conexionEscritura.close()
-        return if (resultadoEliminacion.toInt() == -1) false else true
-        //return resultadoEliminacion.toInt() != -1
+        return if (resultadoEliminacion.toInt() != -1) {
+            Log.i("bdd", "ELIMINAR EMPRESA ${codigo}")
+            true
+        } else {
+            Log.i("bdd", "NO SE PUDO ELIMINAR ")
+            false
+        }
     }
 
     fun eliminarMateriaPorId(id: Int): Boolean {
@@ -170,30 +176,37 @@ class SQLiteHelper(
                 )
             )
         conexionEscritura.close()
-        return if (resultadoEliminacion.toInt() == -1) false else true
+        return if (resultadoEliminacion.toInt() != -1) {
+            Log.i("bdd", "ELIMINAR EMPRESA ${id}")
+            true
+        } else {
+            Log.i("bdd", "NO SE PUDO ELIMINAR ")
+            false
+        }
+
     }
 
-    /*fun actualizarMateriaFormulario(
-        nombre: String,
-        descripcion: String,
-        idActualizar: Int
-    ): Boolean {
-        val conexionEscritura = writableDatabase
-        val valoresAActualizar = ContentValues()
-        valoresAActualizar.put("nombre", nombre)
-        valoresAActualizar.put("descripcion", descripcion)
-        val resultadoActualización = conexionEscritura
-            .update(
-                "USUARIO",
-                valoresAActualizar,
-                "id=?",
-                arrayOf(
-                    idActualizar.toString()
-                )
+/*fun actualizarMateriaFormulario(
+    nombre: String,
+    descripcion: String,
+    idActualizar: Int
+): Boolean {
+    val conexionEscritura = writableDatabase
+    val valoresAActualizar = ContentValues()
+    valoresAActualizar.put("nombre", nombre)
+    valoresAActualizar.put("descripcion", descripcion)
+    val resultadoActualización = conexionEscritura
+        .update(
+            "USUARIO",
+            valoresAActualizar,
+            "id=?",
+            arrayOf(
+                idActualizar.toString()
             )
-        conexionEscritura.close()
-        return if (resultadoActualización.toInt() == -1) false else true
-    }
+        )
+    conexionEscritura.close()
+    return if (resultadoActualización.toInt() == -1) false else true
+}
 */
 
 }

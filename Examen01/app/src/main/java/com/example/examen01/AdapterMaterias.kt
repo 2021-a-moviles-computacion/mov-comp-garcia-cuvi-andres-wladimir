@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 class AdapterMaterias(
     private val contexto: MateriasActivity,
     //private val c: Context,
-    private val listaMateria: List<Materia>,
+    private var listaMateria: ArrayList<Materia>,
     private val recyclerView: RecyclerView
 ) : RecyclerView.Adapter<AdapterMaterias.MyViewHolder>() {
 
@@ -37,23 +37,30 @@ class AdapterMaterias(
         }
 
         private fun popUpMenus(v: View) {
-
-            val position = listaMateria[adapterPosition]
+            BaseDeDatos.TablaMateria = SQLiteHelper(contexto)
+            var idItem = BaseDeDatos.TablaMateria!!.consultaMateriaTotal()[adapterPosition]
             val popup = PopupMenu(contexto, v)
             popup.inflate(R.menu.menu_materias)
             popup.setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.menuEditarMaterias -> {
-                        
+
                         Toast.makeText(contexto, "Editar clicked", Toast.LENGTH_SHORT).show()
                         true
                     }
 
                     //Eliminar
                     R.id.menuEliminarMaterias -> {
-                        Toast.makeText(contexto, "Eliminar clicked", Toast.LENGTH_SHORT).show()
-                        //  BaseDeDatos.TablaMateria!!.eliminarMateriaPorId(idItem.toString().toInt())
+                        //BaseDeDatos.TablaMateria!!.eliminarMateriaPorId()
+                        BaseDeDatos.TablaMateria!!.eliminarMateriaPorCodigo(idItem.codigo.toString())
+                        Toast.makeText(
+                            contexto,
+                            "Eliminar clicked -- ${adapterPosition}",
+                            Toast.LENGTH_SHORT
+                        ).show()
 
+
+                        //listaMateria.removeAt(adapterPosition)
                         true
                     }
 

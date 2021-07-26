@@ -53,7 +53,7 @@ class MateriasActivity : AppCompatActivity() {
     }
 
     fun iniciarRecyclerView(
-        lista: List<Materia>,
+        lista: ArrayList<Materia>,
         activity: MateriasActivity,
         recyclerView: RecyclerView
     ){
