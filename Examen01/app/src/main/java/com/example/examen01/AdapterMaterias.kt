@@ -1,6 +1,8 @@
 package com.example.examen01
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,7 +53,7 @@ class AdapterMaterias(
 
                     //Eliminar
                     R.id.menuEliminarMaterias -> {
-                        //BaseDeDatos.TablaMateria!!.eliminarMateriaPorId()
+
                         BaseDeDatos.TablaMateria!!.eliminarMateriaPorCodigo(idItem.codigo.toString())
                         Toast.makeText(
                             contexto,
@@ -59,8 +61,12 @@ class AdapterMaterias(
                             Toast.LENGTH_SHORT
                         ).show()
 
+                        //contexto.startActivity(Intent(contexto, MateriasActivity::class.java));
+                        contexto.finish()
+                        //contexto.setResult(Activity.RESULT_OK)
+                        //contexto.startActivityForResult(Intent(contexto,MateriasActivity::class.java),400)
 
-                        //listaMateria.removeAt(adapterPosition)
+
                         true
                     }
 

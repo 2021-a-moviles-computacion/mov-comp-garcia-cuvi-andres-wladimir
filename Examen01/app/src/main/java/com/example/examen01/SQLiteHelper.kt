@@ -5,10 +5,9 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
-import android.widget.Toast
 
 class SQLiteHelper(
-    contexto: Context??
+    contexto: Context?
 ) : SQLiteOpenHelper(
     contexto,
     "examen01",
@@ -157,7 +156,7 @@ class SQLiteHelper(
             )
         conexionEscritura.close()
         return if (resultadoEliminacion.toInt() != -1) {
-            Log.i("bdd", "ELIMINAR EMPRESA ${codigo}")
+            Log.i("bdd", "Materia ELiminada -> ${codigo}")
             true
         } else {
             Log.i("bdd", "NO SE PUDO ELIMINAR ")
@@ -177,7 +176,7 @@ class SQLiteHelper(
             )
         conexionEscritura.close()
         return if (resultadoEliminacion.toInt() != -1) {
-            Log.i("bdd", "ELIMINAR EMPRESA ${id}")
+            Log.i("bdd", "Materia ELiminada -> ${id}")
             true
         } else {
             Log.i("bdd", "NO SE PUDO ELIMINAR ")

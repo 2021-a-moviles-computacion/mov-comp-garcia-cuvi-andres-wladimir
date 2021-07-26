@@ -13,7 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MateriasActivity : AppCompatActivity() {
 
-    var posicionItemSeleccionado = 0
+    val CODIGO_RESPUESTA_INTENT_EXPLICITO = 400
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_materias)
@@ -85,49 +86,19 @@ class MateriasActivity : AppCompatActivity() {
         this.startActivity(intentExplicito);
     }
 
-/*    override fun onCreateContextMenu(
-        menu: ContextMenu?,
-        v: View?,
-        menuInfo: ContextMenu.ContextMenuInfo?
-    ) {
-        super.onCreateContextMenu(menu, v, menuInfo)
 
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu_materias,menu)
+    fun abrirActividadConParametros(
+        clase: Class<*>,
+        materia: Materia
+    ){
+        val intentExplicito = Intent(
+            this,
+            clase
+        )
+        intentExplicito.putExtra("materia", materia)
+        startActivityForResult(intentExplicito, CODIGO_RESPUESTA_INTENT_EXPLICITO)
 
-        val info = menuInfo as AdapterView.AdapterContextMenuInfo
-        val id = info.position
-
-        posicionItemSeleccionado = id
     }
-
-    override fun onContextItemSelected(item: MenuItem): Boolean {
-        BaseDeDatos.TablaMateria = SQLiteHelper(this)
-        var idItem = BaseDeDatos.TablaMateria!!.consultaMateriaTotal()[posicionItemSeleccionado]
-        return when (item?.itemId){
-            //Editar
-            R.id.menuEditarMaterias -> {
-
-                return true
-            }
-
-            //Eliminar
-            R.id.menuEliminarMaterias -> {
-              //  BaseDeDatos.TablaMateria!!.eliminarMateriaPorId(idItem.toString().toInt())
-
-                return true
-            }
-
-            R.id.menuListaEstudiantes -> {
-
-                return true
-            }
-            else -> super.onContextItemSelected(item)
-
-        }
-
-    }*/
-
 
 }
 
