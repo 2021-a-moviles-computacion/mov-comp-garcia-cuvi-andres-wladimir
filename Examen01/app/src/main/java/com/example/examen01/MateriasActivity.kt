@@ -47,7 +47,7 @@ class MateriasActivity : AppCompatActivity() {
         //Contextual Menu
 //        val linearLayoutId: LinearLayoutCompat
 //        linearLayoutId = view.findViewById(R.id.LinearLayoutIdMaterias)
-
+            registerForContextMenu(recyclerViewMateria)
 
 
     }
@@ -59,6 +59,7 @@ class MateriasActivity : AppCompatActivity() {
     ){
         val adaptador = AdapterMaterias(
             activity,
+           // this,
             lista,
             recyclerView
         )
@@ -84,7 +85,7 @@ class MateriasActivity : AppCompatActivity() {
         this.startActivity(intentExplicito);
     }
 
-    override fun onCreateContextMenu(
+/*    override fun onCreateContextMenu(
         menu: ContextMenu?,
         v: View?,
         menuInfo: ContextMenu.ContextMenuInfo?
@@ -125,7 +126,7 @@ class MateriasActivity : AppCompatActivity() {
 
         }
 
-    }
+    }*/
 
 
 }
