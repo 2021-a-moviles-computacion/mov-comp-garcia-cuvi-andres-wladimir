@@ -109,8 +109,9 @@ class SQLiteHelper(
     }
 
 
-    /*fun consultarMateriaPorCodigo(codigo: String): Materia {
-        val scriptConsultarMateriaPorCodigo = "SELECT * FROM MATERIA WHERE CODIGOMATERIA = ${codigo}"
+    fun consultarMateriaPorCodigo(codigo: String): Materia {
+        val scriptConsultarMateriaPorCodigo =
+            "SELECT * FROM MATERIA WHERE CODIGOMATERIA = ${codigo}"
         val baseDatosLectura = readableDatabase
         val resultadoConsultaLectura = baseDatosLectura.rawQuery(
             scriptConsultarMateriaPorCodigo,
@@ -125,7 +126,7 @@ class SQLiteHelper(
                 val nombre = resultadoConsultaLectura.getString(2) //Columna indice 2 -> NOMBRE
                 val creditos = resultadoConsultaLectura.getInt(3) //Columna indice 3 -> CREDITOS
                 val aula = resultadoConsultaLectura.getString(4) //Columna indice 4 -> AULA
-                val estado = (resultadoConsultaLectura.getInt(5))>0 //Columna indice 5 -> ESTADO
+                val estado = (resultadoConsultaLectura.getInt(5)) > 0 //Columna indice 5 -> ESTADO
 
                 if (codigo != null) {
                     materiaEncontrada.codigo = codigo
@@ -142,7 +143,6 @@ class SQLiteHelper(
 
         return materiaEncontrada
     }
-*/
 
     fun eliminarMateriaPorCodigo(codigo: String): Boolean {
 
@@ -157,6 +157,20 @@ class SQLiteHelper(
         conexionEscritura.close()
         return if (resultadoEliminacion.toInt() == -1) false else true
         //return resultadoEliminacion.toInt() != -1
+    }
+
+    fun eliminarMateriaPorId(id: Int): Boolean {
+        val conexionEscritura = writableDatabase
+        val resultadoEliminacion = conexionEscritura
+            .delete(
+                "MATERIA",
+                "IDMATERIA=?",
+                arrayOf(
+                    id.toString()
+                )
+            )
+        conexionEscritura.close()
+        return if (resultadoEliminacion.toInt() == -1) false else true
     }
 
     /*fun actualizarMateriaFormulario(

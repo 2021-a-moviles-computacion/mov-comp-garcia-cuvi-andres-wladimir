@@ -3,11 +3,17 @@ package com.example.examen01
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.ContextMenu
+import android.view.MenuItem
+import android.view.View
+import android.widget.AdapterView
 import android.widget.Button
+import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.RecyclerView
 
 class MateriasActivity : AppCompatActivity() {
+
+    var posicionItemSeleccionado = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_materias)
@@ -38,6 +44,12 @@ class MateriasActivity : AppCompatActivity() {
             abrirActividad(MateriasFormularioRegistro::class.java)
         }
 
+        //Contextual Menu
+//        val linearLayoutId: LinearLayoutCompat
+//        linearLayoutId = view.findViewById(R.id.LinearLayoutIdMaterias)
+
+
+
     }
 
     fun iniciarRecyclerView(
@@ -54,6 +66,11 @@ class MateriasActivity : AppCompatActivity() {
         recyclerView.itemAnimator = androidx.recyclerview.widget.DefaultItemAnimator()
         recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity)
         adaptador.notifyDataSetChanged()
+
+        //registerForContextMenu(recyclerView)
+
+
+
     }
 
 
@@ -66,4 +83,64 @@ class MateriasActivity : AppCompatActivity() {
         )
         this.startActivity(intentExplicito);
     }
+
+    override fun onCreateContextMenu(
+        menu: ContextMenu?,
+        v: View?,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_materias,menu)
+
+        val info = menuInfo as AdapterView.AdapterContextMenuInfo
+        val id = info.position
+
+        posicionItemSeleccionado = id
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        BaseDeDatos.TablaMateria = SQLiteHelper(this)
+        var idItem = BaseDeDatos.TablaMateria!!.consultaMateriaTotal()[posicionItemSeleccionado]
+        return when (item?.itemId){
+            //Editar
+            R.id.menuEditarMaterias -> {
+
+                return true
+            }
+
+            //Eliminar
+            R.id.menuEliminarMaterias -> {
+              //  BaseDeDatos.TablaMateria!!.eliminarMateriaPorId(idItem.toString().toInt())
+
+                return true
+            }
+
+            R.id.menuListaEstudiantes -> {
+
+                return true
+            }
+            else -> super.onContextItemSelected(item)
+
+        }
+
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,11 +1,13 @@
 package com.example.examen01
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.Toast
 import java.io.BufferedReader
 
 class MateriasFormularioRegistro : AppCompatActivity() {
@@ -35,10 +37,22 @@ class MateriasFormularioRegistro : AppCompatActivity() {
                     editTextAula.text.toString(),
                     checkBoxEstado.isChecked
                 )
-
+                    abrirActividad(MateriasActivity::class.java)
+                val toast = Toast.makeText(this, "Materia creada exitosamente", Toast.LENGTH_SHORT).show()
                 Log.i("bdd", "Materia creada")
             }
         }
 
+    }
+
+
+    fun abrirActividad(
+        clase: Class<*>
+    ){
+        val intentExplicito = Intent(
+            this,
+            clase
+        )
+        this.startActivity(intentExplicito);
     }
 }

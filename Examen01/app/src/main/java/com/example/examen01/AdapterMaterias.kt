@@ -10,19 +10,19 @@ import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterMaterias (
+class AdapterMaterias(
     private val contexto: MateriasActivity,
     private val listaMateria: List<Materia>,
     private val recyclerView: RecyclerView
-        ):RecyclerView.Adapter<AdapterMaterias.MyViewHolder>(){
+) : RecyclerView.Adapter<AdapterMaterias.MyViewHolder>() {
 
-    inner class MyViewHolder (view: View): RecyclerView.ViewHolder(view) {
+    inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nombreTextView: TextView
         val codigoTextView: TextView
         val aulaTextView: TextView
         val creditosTextView: TextView
         val estadoTextView: TextView
-        val linearLayoutId: LinearLayoutCompat
+        //
 
 
         init {
@@ -31,7 +31,7 @@ class AdapterMaterias (
             aulaTextView = view.findViewById(R.id.tvAulaMateria)
             creditosTextView = view.findViewById(R.id.tvCreditosMateria)
             estadoTextView = view.findViewById(R.id.tvEstadoMateria)
-            linearLayoutId = view.findViewById(R.id.LinearLayoutIdMaterias)
+            //linearLayoutId = view.findViewById(R.id.LinearLayoutIdMaterias)
         }
     }
 
@@ -56,5 +56,9 @@ class AdapterMaterias (
 
     override fun getItemCount(): Int {
         return listaMateria.size
+    }
+
+    fun removeItem(position: Int) {
+        //listaMateria.remove()
     }
 }
