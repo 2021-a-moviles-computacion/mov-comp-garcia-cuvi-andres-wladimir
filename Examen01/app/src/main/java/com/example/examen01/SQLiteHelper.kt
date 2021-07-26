@@ -18,11 +18,11 @@ class SQLiteHelper(
         val scriptCrearTablaMateria = """ 
             create table MATERIA (
                IDMATERIA            integer primary key autoincrement,
-               CODIGOMATERIA        varchar(10)           not null,
+               CODIGOMATERIA        varchar(10)           not null UNIQUE,
                NOMBREMATERIA        varchar(50)          not null,
                CREDITOSMATERIA      int                  not null,
                AULAMATERIA          varchar(15)          not null,
-               ESTADOMATERIA        bit                  not null
+               ESTADOMATERIA        bit                  not null               
             )           
         """.trimIndent()
         Log.i("bdd", "Creando la tabla de materias")
@@ -32,8 +32,8 @@ class SQLiteHelper(
             create table ESTUDIANTE (
                IDESTUDIANTE        integer primary key autoincrement,
                IDMATERIA            int                  ,
-               NUMEROUNICOESTUDIANTE varchar(10)          not null,
-               CEDULAESTUDIANTE     varchar(10)          not null,
+               NUMEROUNICOESTUDIANTE varchar(10)          not null UNIQUE,
+               CEDULAESTUDIANTE     varchar(10)          not null UNIQUE,
                NOMBREESTUDIANTE     varchar(75)          not null,
                CARRERAESTUDIANTE    varchar(100)         not null,
                FECHANACIMIENTOESTUDIANTE date             not null,
@@ -81,7 +81,7 @@ class SQLiteHelper(
         val scriptConsultarMateriaPorCodigo = "SELECT * FROM MATERIA"
         val baseDatosLectura = readableDatabase
         val listaMateria = arrayListOf<Materia>()
-        val materiaEncontrada = Materia("", "", 0, "", true)
+        //val materiaEncontrada = Materia("", "", 0, "", true)
         val resultadoConsultaLectura = baseDatosLectura.rawQuery(
             scriptConsultarMateriaPorCodigo,
             null
@@ -90,6 +90,7 @@ class SQLiteHelper(
         val existeMateria = resultadoConsultaLectura.moveToFirst()
         if (existeMateria) {
             do {
+                val id = resultadoConsultaLectura.getInt(0) //Columna indice 1 -> CODIGO
                 val codigo = resultadoConsultaLectura.getString(1) //Columna indice 1 -> CODIGO
                 val nombre = resultadoConsultaLectura.getString(2) //Columna indice 2 -> NOMBRE
                 val creditos = resultadoConsultaLectura.getInt(3) //Columna indice 3 -> CREDITOS
@@ -186,9 +187,10 @@ class SQLiteHelper(
     }
 
 /*fun actualizarMateriaFormulario(
+    codigo: String,
     nombre: String,
-    descripcion: String,
-    idActualizar: Int
+    creditos: Int,
+    aula: String,
 ): Boolean {
     val conexionEscritura = writableDatabase
     val valoresAActualizar = ContentValues()
@@ -205,7 +207,6 @@ class SQLiteHelper(
         )
     conexionEscritura.close()
     return if (resultadoActualización.toInt() == -1) false else true
-}
-*/
+}*/
 
 }
