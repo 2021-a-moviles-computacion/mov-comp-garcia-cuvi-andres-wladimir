@@ -8,7 +8,6 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
-import java.io.BufferedReader
 
 class MateriasFormularioRegistro : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

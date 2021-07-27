@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 
 class AdapterMaterias(
     private val contexto: MateriasActivity,
-    //private val c: Context,
     private var listaMateria: ArrayList<Materia>,
     private val recyclerView: RecyclerView
 ) : RecyclerView.Adapter<AdapterMaterias.MyViewHolder>() {
@@ -45,8 +44,15 @@ class AdapterMaterias(
             popup.inflate(R.menu.menu_materias)
             popup.setOnMenuItemClickListener {
                 when (it.itemId) {
+
+                    //Editar
                     R.id.menuEditarMaterias -> {
 
+                        val intentExplicito = Intent(contexto,MateriasFormularioActualizacion::class.java)
+                        intentExplicito.putExtra("id",idItem)
+                        //contexto.startActivityForResult(intentExplicito,401)
+                        contexto.startActivity(intentExplicito)
+                      //  contexto.startActivity(Intent(contexto, MateriasFormularioActualizacion::class.java));
                         Toast.makeText(contexto, "Editar clicked", Toast.LENGTH_SHORT).show()
                         true
                     }

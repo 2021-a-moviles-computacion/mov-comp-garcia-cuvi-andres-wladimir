@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Examen01">
         <activity android:name=".MateriasFormularioRegistro"></activity>
+        <activity android:name=".MateriasFormularioActualizacion"></activity>
         <activity android:name=".EstudiantesActivity" />
         <activity android:name=".MateriasActivity" />
         <activity android:name=".MainActivity">

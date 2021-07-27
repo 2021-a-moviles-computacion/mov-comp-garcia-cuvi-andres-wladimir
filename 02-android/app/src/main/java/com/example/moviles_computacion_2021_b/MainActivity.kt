@@ -97,7 +97,8 @@ class MainActivity : AppCompatActivity() {
     ){
         val intentExplicito = Intent(
             this,
-            clase
+            clase,
+
         )
         intentExplicito.putExtra("nombre", "Andres")
         intentExplicito.putExtra("apellido", "Garcia")
