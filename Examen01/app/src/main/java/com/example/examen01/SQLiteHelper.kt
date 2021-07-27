@@ -214,4 +214,34 @@ class SQLiteHelper(
         return if (resultadoActualización.toInt() == -1) false else true
     }
 
+
+
+//    Métodos para Estudiante
+
+    fun crearEstudianteFormulario(
+        codigo: String,
+        nombre: String,
+        creditos: Int,
+        aula: String,
+        estado: Boolean
+    ): Boolean {
+        val conexionEscrituta = writableDatabase
+        val valoresAGuardar = ContentValues()
+        valoresAGuardar.put("CODIGOMATERIA", codigo)
+        valoresAGuardar.put("NOMBREMATERIA", nombre)
+        valoresAGuardar.put("CREDITOSMATERIA", creditos)
+        valoresAGuardar.put("AULAMATERIA", aula)
+        valoresAGuardar.put("ESTADOMATERIA", estado)
+        val resultadoEscritura: Long = conexionEscrituta
+            .insert(
+                "MATERIA",
+                null,
+                valoresAGuardar
+            )
+        conexionEscrituta.close()
+        return if (resultadoEscritura.toInt() == -1) false else true
+    }
+
+
+
 }
