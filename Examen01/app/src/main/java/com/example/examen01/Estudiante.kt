@@ -2,7 +2,7 @@ package com.example.examen01
 
 import android.os.Parcel
 import android.os.Parcelable
-
+import java.util.*
 
 class Estudiante(
     val id: Int,
@@ -10,9 +10,9 @@ class Estudiante(
     var numeroUnico: String?,
     var cedula: String?,
     var nombre: String?,
-    var carrera: Int?,
+    var carrera: String?,
     var fechaNacimiento: String?,
-    var materiaActiva: Boolean
+    var estadoEstudiante: Boolean
 ) : Parcelable{
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
@@ -20,7 +20,7 @@ class Estudiante(
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
-        parcel.readValue(Int::class.java.classLoader) as? Int,
+        parcel.readString(),
         parcel.readString(),
         parcel.readByte() != 0.toByte()
     ) {
@@ -32,9 +32,9 @@ class Estudiante(
         parcel.writeString(numeroUnico)
         parcel.writeString(cedula)
         parcel.writeString(nombre)
-        parcel.writeValue(carrera)
+        parcel.writeString(carrera)
         parcel.writeString(fechaNacimiento)
-        parcel.writeByte(if (materiaActiva) 1 else 0)
+        parcel.writeByte(if (estadoEstudiante) 1 else 0)
     }
 
     override fun describeContents(): Int {

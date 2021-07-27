@@ -90,7 +90,7 @@ class SQLiteHelper(
         val existeMateria = resultadoConsultaLectura.moveToFirst()
         if (existeMateria) {
             do {
-                val id = resultadoConsultaLectura.getInt(0) //Columna indice 1 -> CODIGO
+                val id = resultadoConsultaLectura.getInt(0) //Columna indice 0 -> ID
                 val codigo = resultadoConsultaLectura.getString(1) //Columna indice 1 -> CODIGO
                 val nombre = resultadoConsultaLectura.getString(2) //Columna indice 2 -> NOMBRE
                 val creditos = resultadoConsultaLectura.getInt(3) //Columna indice 3 -> CREDITOS
@@ -215,26 +215,29 @@ class SQLiteHelper(
     }
 
 
-
 //    Métodos para Estudiante
 
     fun crearEstudianteFormulario(
-        codigo: String,
+        idMateria: Int,
+        numeroUnico: String,
+        cedula: String,
         nombre: String,
-        creditos: Int,
-        aula: String,
-        estado: Boolean
+        carrera: String,
+        fechaNacimiento: String,
+        estadoEstudiante: Boolean
     ): Boolean {
         val conexionEscrituta = writableDatabase
         val valoresAGuardar = ContentValues()
-        valoresAGuardar.put("CODIGOMATERIA", codigo)
-        valoresAGuardar.put("NOMBREMATERIA", nombre)
-        valoresAGuardar.put("CREDITOSMATERIA", creditos)
-        valoresAGuardar.put("AULAMATERIA", aula)
-        valoresAGuardar.put("ESTADOMATERIA", estado)
+        valoresAGuardar.put("IDMATERIA", idMateria)
+        valoresAGuardar.put("NUMEROUNICOESTUDIANTE", numeroUnico)
+        valoresAGuardar.put("CEDULAESTUDIANTE", cedula)
+        valoresAGuardar.put("NOMBREESTUDIANTE", nombre)
+        valoresAGuardar.put("CARRERAESTUDIANTE", carrera)
+        valoresAGuardar.put("FECHANACIMIENTOESTUDIANTE", fechaNacimiento)
+        valoresAGuardar.put("ESTADOESTUDIANTE", estadoEstudiante)
         val resultadoEscritura: Long = conexionEscrituta
             .insert(
-                "MATERIA",
+                "ESTUDIANTE",
                 null,
                 valoresAGuardar
             )
@@ -242,6 +245,51 @@ class SQLiteHelper(
         return if (resultadoEscritura.toInt() == -1) false else true
     }
 
+    fun consultaListaEstudiantes(): ArrayList<Estudiante> {
+        val scriptConsultarEstudiante = "SELECT * FROM ESTUDIANTE"
+        val baseDatosLectura = readableDatabase
+        val listaEstudiante = arrayListOf<Estudiante>()
+        val resultadoConsultaLectura = baseDatosLectura.rawQuery(
+            scriptConsultarEstudiante,
+            null
+        )
+
+        val existeEstudiante = resultadoConsultaLectura.moveToFirst()
+
+
+        if (existeEstudiante) {
+            do {
+                val id = resultadoConsultaLectura.getInt(0)
+                val idMateria = resultadoConsultaLectura.getInt(1)
+                val numeroUnico = resultadoConsultaLectura.getString(2)
+                val cedula = resultadoConsultaLectura.getString(3)
+                val nombre = resultadoConsultaLectura.getString(4)
+                val carrera = resultadoConsultaLectura.getString(5)
+                val fechaNacimiento = resultadoConsultaLectura.getString(6)
+                val estadoEstudiante = (resultadoConsultaLectura.getInt(7)) > 0
+
+                if (id != null) {
+                    listaEstudiante.add(
+                        Estudiante(
+                            id,
+                            idMateria,
+                            numeroUnico,
+                            cedula,
+                            nombre,
+                            carrera,
+                            fechaNacimiento,
+                            estadoEstudiante
+                        )
+                    )
+                }
+
+            } while (resultadoConsultaLectura.moveToNext())
+        }
+        resultadoConsultaLectura.close()
+        baseDatosLectura.close()
+        Log.i("bdd", resultadoConsultaLectura.toString())
+        return listaEstudiante
+    }
 
 
 }
