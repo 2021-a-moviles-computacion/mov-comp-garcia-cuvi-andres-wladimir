@@ -14,7 +14,7 @@ class MateriasFormularioRegistro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_materias_formulario_registro)
         BaseDeDatos.TablaMateria = SQLiteHelper(this)
-        
+
         //Ingreso de datos
 
         val editTextCodigo = findViewById<EditText>(R.id.edtxtCodigoMateria)

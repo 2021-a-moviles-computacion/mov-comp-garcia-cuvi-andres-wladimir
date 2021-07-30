@@ -112,7 +112,7 @@ class SQLiteHelper(
 
     fun consultarMateriaPorCodigo(codigo: String): Materia {
         val scriptConsultarMateriaPorCodigo =
-            "SELECT * FROM MATERIA WHERE CODIGOMATERIA = ${codigo}"
+            "SELECT * FROM MATERIA WHERE CODIGOMATERIA = '${codigo}'"
         val baseDatosLectura = readableDatabase
         val resultadoConsultaLectura = baseDatosLectura.rawQuery(
             scriptConsultarMateriaPorCodigo,
@@ -123,6 +123,7 @@ class SQLiteHelper(
         val materiaEncontrada = Materia(0, "", "", 0, "", true)
         if (existeMateria) {
             do {
+                val id = resultadoConsultaLectura.getInt(0) //Columna indice 0 -> ID
                 val codigo = resultadoConsultaLectura.getString(1) //Columna indice 1 -> CODIGO
                 val nombre = resultadoConsultaLectura.getString(2) //Columna indice 2 -> NOMBRE
                 val creditos = resultadoConsultaLectura.getInt(3) //Columna indice 3 -> CREDITOS
@@ -130,6 +131,7 @@ class SQLiteHelper(
                 val estado = (resultadoConsultaLectura.getInt(5)) > 0 //Columna indice 5 -> ESTADO
 
                 if (codigo != null) {
+                    materiaEncontrada.id = id
                     materiaEncontrada.codigo = codigo
                     materiaEncontrada.nombre = nombre
                     materiaEncontrada.creditos = creditos

@@ -137,7 +137,7 @@
             android:id="@+id/textView10Estudiante"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Carrera: "
+            android:text="Fecha de Nacimiento: "
             android:textStyle="bold" />
 
         <TextView

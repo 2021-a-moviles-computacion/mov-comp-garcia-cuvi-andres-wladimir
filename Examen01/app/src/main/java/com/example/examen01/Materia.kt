@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class Materia (
-    val id: Int,
+    var id: Int,
     var codigo: String?,
     var nombre: String?,
     var creditos: Int?,

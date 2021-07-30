@@ -48,7 +48,7 @@ class MateriasActivity : AppCompatActivity() {
         //Contextual Menu
 //        val linearLayoutId: LinearLayoutCompat
 //        linearLayoutId = view.findViewById(R.id.LinearLayoutIdMaterias)
-            registerForContextMenu(recyclerViewMateria)
+     //       registerForContextMenu(recyclerViewMateria)
 
 
     }

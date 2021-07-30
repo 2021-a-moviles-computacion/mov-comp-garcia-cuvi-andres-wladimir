@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EstudiantesFormularioRegistro">
+
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FORMULARIO DE REGISTRO DE ESTUDIANTES"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.082" />
+
+    <EditText
+        android:id="@+id/edtxtCodigoEstudiante"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Código Único"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+
+    <EditText
+        android:id="@+id/edtxtCedulaEstudiante"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="Cédula"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtCodigoEstudiante"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/edtxtCodigoEstudiante"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtCodigoEstudiante" />
+
+    <EditText
+        android:id="@+id/edtxtIDMateriaEstudiante"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="Código de la Materia"
+        android:inputType="text"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtCarreraEstudiante"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edtxtCarreraEstudiante"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtCarreraEstudiante" />
+
+    <EditText
+        android:id="@+id/edtxtCarreraEstudiante"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="Carrera"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtfechaNacimientoEstudiante"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/edtxtfechaNacimientoEstudiante"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtfechaNacimientoEstudiante" />
+
+    <EditText
+        android:id="@+id/edtxtfechaNacimientoEstudiante"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="Fecha de Nacimiento"
+        android:inputType="date"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtNombreEstudiante"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/edtxtNombreEstudiante"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtNombreEstudiante" />
+
+    <EditText
+        android:id="@+id/edtxtNombreEstudiante"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtCedulaEstudiante"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edtxtCedulaEstudiante"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtCedulaEstudiante" />
+
+    <CheckBox
+        android:id="@+id/checkBoxEstadoEstudiante"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Estado (Activo / Inactivo)"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtIDMateriaEstudiante"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/edtxtIDMateriaEstudiante"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtIDMateriaEstudiante" />
+
+    <Button
+        android:id="@+id/btnCrearEstudiante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="CREAR"
+        app:layout_constraintEnd_toEndOf="@+id/checkBoxEstadoEstudiante"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/checkBoxEstadoEstudiante"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxEstadoEstudiante" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
