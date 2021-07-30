@@ -293,5 +293,58 @@ class SQLiteHelper(
         return listaEstudiante
     }
 
+    fun eliminarEstudiantePorId(id: Int): Boolean {
+        val conexionEscritura = writableDatabase
+        val resultadoEliminacion = conexionEscritura
+            .delete(
+                "ESTUDIANTE",
+                "IDESTUDIANTE=?",
+                arrayOf(
+                    id.toString()
+                )
+            )
+        conexionEscritura.close()
+        return if (resultadoEliminacion.toInt() != -1) {
+            Log.i("bdd", "Estudiante ELiminada -> ${id}")
+            true
+        } else {
+            Log.i("bdd", "NO SE PUDO ELIMINAR ")
+            false
+        }
+
+    }
+
+
+    fun actualizarEstudianteFormulario(
+        idActualizar: Int,
+        idMateria: Int,
+        numeroUnico: String,
+        cedula: String,
+        nombre: String,
+        carrera: Int,
+        fechaNacimiento: String,
+        estado: Boolean
+    ): Boolean {
+        val conexionEscritura = writableDatabase
+        val valoresAActualizar = ContentValues()
+        valoresAActualizar.put("IDMATERIA", idMateria)
+        valoresAActualizar.put("NUMEROUNICOESTUDIANTE", numeroUnico)
+        valoresAActualizar.put("CEDULAESTUDIANTE", cedula)
+        valoresAActualizar.put("NOMBREESTUDIANTE", nombre)
+        valoresAActualizar.put("CARRERAESTUDIANTE", carrera)
+        valoresAActualizar.put("FECHANACIMIENTOESTUDIANTE", fechaNacimiento)
+        valoresAActualizar.put("ESTADOESTUDIANTE", estado)
+        val resultadoActualización = conexionEscritura
+            .update(
+                "ESTUDIANTE",
+                valoresAActualizar,
+                "IDESTUDIANTE=?",
+                arrayOf(
+                    idActualizar.toString()
+                )
+            )
+        conexionEscritura.close()
+        return if (resultadoActualización.toInt() == -1) false else true
+    }
 
 }

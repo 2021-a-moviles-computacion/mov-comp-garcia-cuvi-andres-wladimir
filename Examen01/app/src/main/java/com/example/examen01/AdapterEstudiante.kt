@@ -3,6 +3,7 @@ package com.example.examen01
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -33,7 +34,33 @@ class AdapterEstudiante (
             fechaNacimientoTextView = view.findViewById(R.id.tvFechaNacimientoEstudiante)
             estadoTextView = view.findViewById(R.id.tvEstadoEstudiante)
             linearLayoutId = view.findViewById(R.id.LinearLayoutIdEstudiante)
-            //linearLayoutId.setOnClickListener { popUpMenus(it) }
+            linearLayoutId.setOnClickListener { popUpMenus(it) }
+        }
+
+        private fun popUpMenus(v: View) {
+            BaseDeDatos.TablaEstudiante = SQLiteHelper(contexto)
+            var idItem = BaseDeDatos.TablaEstudiante!!.consultaListaEstudiantes()[adapterPosition]
+            val popup = PopupMenu(contexto, v)
+            popup.inflate(R.menu.menu_estudiantes)
+            popup.setOnMenuItemClickListener {
+                when (it.itemId){
+                    //Editar
+                    R.id.menuEditarEstudiante -> {
+                        true
+                    }
+
+
+                    //Eliminar
+                    R.id.menuEliminarEstudiante -> {
+
+                        true
+                    }
+
+                    else -> true
+
+                }
+            }
+            popup.show()
         }
     }
 
