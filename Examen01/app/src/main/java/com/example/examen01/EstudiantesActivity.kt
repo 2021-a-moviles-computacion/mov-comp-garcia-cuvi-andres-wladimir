@@ -56,9 +56,5 @@ class EstudiantesActivity : AppCompatActivity() {
         recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity)
         adaptador.notifyDataSetChanged()
 
-        //registerForContextMenu(recyclerView)
-
-
-
     }
 }

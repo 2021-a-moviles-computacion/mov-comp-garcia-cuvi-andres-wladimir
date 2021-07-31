@@ -333,6 +333,52 @@ class SQLiteHelper(
         return listaEstudiante
     }
 
+
+    fun consultarEstudiantePorId(id: Int):  ArrayList<Estudiante> {
+
+        val scriptConsultarEstudiantePorId =
+            "SELECT * FROM ESTUDIANTE WHERE IDESTUDIANTE = '${id}'"
+        val baseDatosLectura = readableDatabase
+        val listaEstudiante = arrayListOf<Estudiante>()
+        val resultadoConsultaLectura = baseDatosLectura.rawQuery(
+            scriptConsultarEstudiantePorId,
+            null
+        )
+        val existeEstudiante = resultadoConsultaLectura.moveToFirst()
+
+        if (existeEstudiante) {
+            do {
+                val id = resultadoConsultaLectura.getInt(0)
+                val idMateria = resultadoConsultaLectura.getInt(1)
+                val numeroUnico = resultadoConsultaLectura.getString(2)
+                val cedula = resultadoConsultaLectura.getString(3)
+                val nombre = resultadoConsultaLectura.getString(4)
+                val carrera = resultadoConsultaLectura.getString(5)
+                val fechaNacimiento = resultadoConsultaLectura.getString(6)
+                val estadoEstudiante = (resultadoConsultaLectura.getInt(7)) > 0
+
+                if (id != null) {
+                    listaEstudiante.add(
+                        Estudiante(
+                            id,
+                            idMateria,
+                            numeroUnico,
+                            cedula,
+                            nombre,
+                            carrera,
+                            fechaNacimiento,
+                            estadoEstudiante
+                        )
+                    )
+                }
+            } while (resultadoConsultaLectura.moveToNext())
+        }
+        resultadoConsultaLectura.close()
+        baseDatosLectura.close()
+        Log.i("bdd", resultadoConsultaLectura.toString())
+        return listaEstudiante
+    }
+
     fun eliminarEstudiantePorId(id: Int): Boolean {
         val conexionEscritura = writableDatabase
         val resultadoEliminacion = conexionEscritura
