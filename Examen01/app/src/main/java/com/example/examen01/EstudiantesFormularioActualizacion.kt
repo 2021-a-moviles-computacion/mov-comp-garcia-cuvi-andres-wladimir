@@ -17,6 +17,7 @@ class EstudiantesFormularioActualizacion : AppCompatActivity() {
         Log.i("bdd", "${itemId?.id}")
 
         BaseDeDatos.TablaEstudiante = SQLiteHelper(this)
+        BaseDeDatos.TablaMateria = SQLiteHelper(this)
         var materiaEncontrada = Materia(0, "", "", 0, "", true)
         //Ingreso de datos
         val editTextCodigoUnico = findViewById<EditText>(R.id.edtxtCodigoEstudianteActualizar)
@@ -37,9 +38,10 @@ class EstudiantesFormularioActualizacion : AppCompatActivity() {
 
         if (BaseDeDatos.TablaMateria != null) {
             materiaEncontrada =
-                BaseDeDatos.TablaMateria!!.consultarMateriaPorId(itemId!!.id)
+                BaseDeDatos.TablaMateria!!.consultarMateriaPorId(itemId!!.idMateria)
         }
-        editTexIdMateria.setText(materiaEncontrada.codigo.toString())
+
+        editTexIdMateria.setText( materiaEncontrada.codigo.toString())
 
 //        Boton para Actualizar
 
