@@ -87,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edtxtAulaMateriactualizar" />
 
     <Button
-        android:id="@+id/btnCrearMateriaActualizar"
+        android:id="@+id/btnActualizarMateria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"

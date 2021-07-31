@@ -1,10 +1,12 @@
 package com.example.examen01
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.RecyclerView
 
@@ -46,12 +48,24 @@ class AdapterEstudiante (
                 when (it.itemId){
                     //Editar
                     R.id.menuEditarEstudiante -> {
+                        val intentExplicito = Intent(contexto,EstudiantesFormularioActualizacion::class.java)
+                        intentExplicito.putExtra("id",idItem)
+                        contexto.startActivity(intentExplicito)
+                        Toast.makeText(contexto, "Editar estudiante -> ${adapterPosition}", Toast.LENGTH_SHORT).show()
                         true
                     }
 
 
                     //Eliminar
                     R.id.menuEliminarEstudiante -> {
+                        BaseDeDatos.TablaEstudiante!!.eliminarEstudiantePorId(idItem.id)
+                        Toast.makeText(
+                            contexto,
+                            "Estudiante eliminado -> ${adapterPosition}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        contexto.finish()
 
                         true
                     }

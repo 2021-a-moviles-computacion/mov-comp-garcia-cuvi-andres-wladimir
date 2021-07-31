@@ -39,8 +39,8 @@ class MateriasFormularioActualizacion : AppCompatActivity() {
         editTextAula.setText(itemId!!.aula)
 
 
-        //Boton para crear
-        val btnActualizarMateria = findViewById<Button>(R.id.btnCrearMateriaActualizar)
+        //Boton para Actualizar
+        val btnActualizarMateria = findViewById<Button>(R.id.btnActualizarMateria)
 
 
         btnActualizarMateria.setOnClickListener {
@@ -55,9 +55,8 @@ class MateriasFormularioActualizacion : AppCompatActivity() {
                 )
 
                 abrirActividad(MateriasActivity::class.java)
-                val toast =
-                    Toast.makeText(this, "Materia actualizada exitosamente", Toast.LENGTH_SHORT)
-                        .show()
+                Toast.makeText(this, "Materia actualizada exitosamente", Toast.LENGTH_SHORT)
+                    .show()
                 Log.i("bdd", "Materia actualizada")
                 this.finish()
             }

@@ -6,4 +6,117 @@
     android:layout_height="match_parent"
     tools:context=".EstudiantesFormularioActualizacion">
 
+    <TextView
+        android:id="@+id/textView5Actualizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FORMULARIO DE ACTUALIZACIÓN DE ESTUDIANTES"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.082" />
+
+
+    <EditText
+        android:id="@+id/edtxtCodigoEstudianteActualizar"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:hint="Código Único"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView5Actualizar"
+        app:layout_constraintStart_toStartOf="@+id/textView5Actualizar"
+        app:layout_constraintTop_toBottomOf="@+id/textView5Actualizar" />
+
+    <EditText
+        android:id="@+id/edtxtCedulaEstudianteActualizar"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="Cédula"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtCodigoEstudianteActualizar"
+        app:layout_constraintStart_toStartOf="@+id/edtxtCodigoEstudianteActualizar"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtCodigoEstudianteActualizar" />
+
+    <EditText
+        android:id="@+id/edtxtIDMateriaEstudianteActualizar"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="Código de la Materia"
+        android:inputType="text"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtCarreraEstudianteActualizar"
+        app:layout_constraintStart_toStartOf="@+id/edtxtCarreraEstudianteActualizar"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtCarreraEstudianteActualizar" />
+
+    <EditText
+        android:id="@+id/edtxtCarreraEstudianteActualizar"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="Carrera"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtfechaNacimientoEstudianteActualizar"
+        app:layout_constraintStart_toStartOf="@+id/edtxtfechaNacimientoEstudianteActualizar"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtfechaNacimientoEstudianteActualizar" />
+
+    <EditText
+        android:id="@+id/edtxtfechaNacimientoEstudianteActualizar"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="Fecha de Nacimiento"
+        android:inputType="date"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtNombreEstudianteActualizar"
+        app:layout_constraintStart_toStartOf="@+id/edtxtNombreEstudianteActualizar"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtNombreEstudianteActualizar" />
+
+    <EditText
+        android:id="@+id/edtxtNombreEstudianteActualizar"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtCedulaEstudianteActualizar"
+        app:layout_constraintStart_toStartOf="@+id/edtxtCedulaEstudianteActualizar"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtCedulaEstudianteActualizar" />
+
+    <CheckBox
+        android:id="@+id/checkBoxEstadoEstudianteActualizar"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Estado (Activo / Inactivo)"
+        app:layout_constraintEnd_toEndOf="@+id/edtxtIDMateriaEstudianteActualizar"
+        app:layout_constraintStart_toStartOf="@+id/edtxtIDMateriaEstudianteActualizar"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtIDMateriaEstudianteActualizar" />
+
+    <Button
+        android:id="@+id/btnActualizarEstudiante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="ACTUALIZAR"
+        app:layout_constraintEnd_toEndOf="@+id/checkBoxEstadoEstudianteActualizar"
+        app:layout_constraintStart_toStartOf="@+id/checkBoxEstadoEstudianteActualizar"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxEstadoEstudianteActualizar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

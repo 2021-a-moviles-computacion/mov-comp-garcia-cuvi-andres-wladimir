@@ -110,6 +110,45 @@ class SQLiteHelper(
     }
 
 
+    fun consultarMateriaPorId(id: Int): Materia {
+
+        val scriptConsultarMateriaPorId =
+            "SELECT * FROM MATERIA WHERE IDMATERIA = '${id}'"
+        val baseDatosLectura = readableDatabase
+        val resultadoConsultaLectura = baseDatosLectura.rawQuery(
+            scriptConsultarMateriaPorId,
+            null
+        )
+        val existeMateria = resultadoConsultaLectura.moveToFirst()
+        //val arregloUsuario = arrayListOf<EUsuarioBDD>()       //En caso de3 necesitar un arreglo de registros
+        val materiaEncontrada = Materia(0, "", "", 0, "", true)
+        if (existeMateria) {
+            do {
+                val id = resultadoConsultaLectura.getInt(0) //Columna indice 0 -> ID
+                val codigo = resultadoConsultaLectura.getString(1) //Columna indice 1 -> CODIGO
+                val nombre = resultadoConsultaLectura.getString(2) //Columna indice 2 -> NOMBRE
+                val creditos = resultadoConsultaLectura.getInt(3) //Columna indice 3 -> CREDITOS
+                val aula = resultadoConsultaLectura.getString(4) //Columna indice 4 -> AULA
+                val estado = (resultadoConsultaLectura.getInt(5)) > 0 //Columna indice 5 -> ESTADO
+
+                if (codigo != null) {
+                    materiaEncontrada.id = id
+                    materiaEncontrada.codigo = codigo
+                    materiaEncontrada.nombre = nombre
+                    materiaEncontrada.creditos = creditos
+                    materiaEncontrada.aula = aula
+                    materiaEncontrada.materiaActiva = estado
+                    //arregloUsuario.add(usuarioEncontrado)
+                }
+            } while (resultadoConsultaLectura.moveToNext())
+        }
+        resultadoConsultaLectura.close()
+        baseDatosLectura.close()
+
+        return materiaEncontrada
+    }
+
+
     fun consultarMateriaPorCodigo(codigo: String): Materia {
         val scriptConsultarMateriaPorCodigo =
             "SELECT * FROM MATERIA WHERE CODIGOMATERIA = '${codigo}'"
@@ -146,6 +185,7 @@ class SQLiteHelper(
 
         return materiaEncontrada
     }
+
 
     fun eliminarMateriaPorCodigo(codigo: String): Boolean {
 
@@ -321,7 +361,7 @@ class SQLiteHelper(
         numeroUnico: String,
         cedula: String,
         nombre: String,
-        carrera: Int,
+        carrera: String,
         fechaNacimiento: String,
         estado: Boolean
     ): Boolean {
