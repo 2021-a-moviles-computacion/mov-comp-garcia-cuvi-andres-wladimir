@@ -18,6 +18,7 @@ class AdapterMaterias(
     private val recyclerView: RecyclerView
 ) : RecyclerView.Adapter<AdapterMaterias.MyViewHolder>() {
 
+
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var nombreTextView: TextView
         var codigoTextView: TextView
@@ -77,6 +78,17 @@ class AdapterMaterias(
                         true
                     }
 
+                    //Lista Estudiantes
+                    R.id.menuListaEstudiantes ->{
+                        var listaEstudiante = arrayListOf<Estudiante>()
+                        BaseDeDatos.TablaEstudiante = SQLiteHelper(contexto)
+                        if (BaseDeDatos.TablaEstudiante != null) {
+                            listaEstudiante = BaseDeDatos.TablaEstudiante!!.consultarEstudiantePorId(idItem.id)
+                        }
+                        iniciarRecyclerView(listaEstudiante,EstudiantesActivity(),recyclerView)
+                        true
+                    }
+
                     else -> true
                 }
             }
@@ -108,6 +120,24 @@ class AdapterMaterias(
 
     override fun getItemCount(): Int {
         return listaMateria.size
+    }
+
+    fun iniciarRecyclerView(
+        lista: ArrayList<Estudiante>,
+        activity: EstudiantesActivity,
+        recyclerView: RecyclerView
+    ){
+        val adaptador = AdapterEstudiante(
+            activity,
+            // this,
+            lista,
+            recyclerView
+        )
+        recyclerView.adapter = adaptador
+        recyclerView.itemAnimator = androidx.recyclerview.widget.DefaultItemAnimator()
+        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity)
+        adaptador.notifyDataSetChanged()
+
     }
 
 

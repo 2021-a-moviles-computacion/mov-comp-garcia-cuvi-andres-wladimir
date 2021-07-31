@@ -337,7 +337,7 @@ class SQLiteHelper(
     fun consultarEstudiantePorId(id: Int):  ArrayList<Estudiante> {
 
         val scriptConsultarEstudiantePorId =
-            "SELECT * FROM ESTUDIANTE WHERE IDESTUDIANTE = '${id}'"
+            "SELECT * FROM ESTUDIANTE WHERE IDMATERIA = '${id}'"
         val baseDatosLectura = readableDatabase
         val listaEstudiante = arrayListOf<Estudiante>()
         val resultadoConsultaLectura = baseDatosLectura.rawQuery(
