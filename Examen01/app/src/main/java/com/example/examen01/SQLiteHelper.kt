@@ -31,7 +31,7 @@ class SQLiteHelper(
         val scriptCrearTablaEstudiante = """ 
             create table ESTUDIANTE (
                IDESTUDIANTE        integer primary key autoincrement,
-               IDMATERIA            int                  ,
+               IDMATERIA            int,
                NUMEROUNICOESTUDIANTE varchar(10)          not null UNIQUE,
                CEDULAESTUDIANTE     varchar(10)          not null UNIQUE,
                NOMBREESTUDIANTE     varchar(75)          not null,

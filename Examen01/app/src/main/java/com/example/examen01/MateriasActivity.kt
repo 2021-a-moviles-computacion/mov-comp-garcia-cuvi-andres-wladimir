@@ -43,6 +43,7 @@ class MateriasActivity : AppCompatActivity() {
 
         btnIrAFormularioRegistroMaterias.setOnClickListener{
             abrirActividad(MateriasFormularioRegistro::class.java)
+            this.finish()
         }
 
         //Contextual Menu

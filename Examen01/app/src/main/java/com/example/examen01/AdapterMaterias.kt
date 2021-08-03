@@ -36,9 +36,11 @@ class AdapterMaterias(
             estadoTextView = view.findViewById(R.id.tvEstadoMateria)
             linearLayoutId = view.findViewById(R.id.LinearLayoutIdMaterias)
             linearLayoutId.setOnClickListener { popUpMenus(it) }
+
         }
 
         private fun popUpMenus(v: View) {
+
             BaseDeDatos.TablaMateria = SQLiteHelper(contexto)
             var idItem = BaseDeDatos.TablaMateria!!.consultaMateriaTotal()[adapterPosition]
             val popup = PopupMenu(contexto, v)
@@ -49,11 +51,13 @@ class AdapterMaterias(
                     //Editar
                     R.id.menuEditarMaterias -> {
 
-                        val intentExplicito = Intent(contexto,MateriasFormularioActualizacion::class.java)
-                        intentExplicito.putExtra("id",idItem)
+                        val intentExplicito =
+                            Intent(contexto, MateriasFormularioActualizacion::class.java)
+                        intentExplicito.putExtra("id", idItem)
                         //contexto.startActivityForResult(intentExplicito,401)
                         contexto.startActivity(intentExplicito)
-                      //  contexto.startActivity(Intent(contexto, MateriasFormularioActualizacion::class.java));
+                        contexto.finish()
+                        //  contexto.startActivity(Intent(contexto, MateriasFormularioActualizacion::class.java));
                         Toast.makeText(contexto, "Editar clicked", Toast.LENGTH_SHORT).show()
                         true
                     }
@@ -79,13 +83,15 @@ class AdapterMaterias(
                     }
 
                     //Lista Estudiantes
-                    R.id.menuListaEstudiantes ->{
+                    R.id.menuListaEstudiantes -> {
                         var listaEstudiante = arrayListOf<Estudiante>()
                         BaseDeDatos.TablaEstudiante = SQLiteHelper(contexto)
                         if (BaseDeDatos.TablaEstudiante != null) {
-                            listaEstudiante = BaseDeDatos.TablaEstudiante!!.consultarEstudiantePorId(idItem.id)
+                            listaEstudiante =
+                                BaseDeDatos.TablaEstudiante!!.consultarEstudiantePorId(idItem.id)
                         }
-                        iniciarRecyclerView(listaEstudiante,EstudiantesActivity(),recyclerView)
+
+                        iniciarRecyclerView(listaEstudiante, EstudiantesActivity(), recyclerView)
                         true
                     }
 
@@ -126,7 +132,7 @@ class AdapterMaterias(
         lista: ArrayList<Estudiante>,
         activity: EstudiantesActivity,
         recyclerView: RecyclerView
-    ){
+    ) {
         val adaptador = AdapterEstudiante(
             activity,
             // this,

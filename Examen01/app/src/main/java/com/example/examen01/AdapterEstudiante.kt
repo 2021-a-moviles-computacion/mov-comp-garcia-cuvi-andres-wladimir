@@ -51,6 +51,7 @@ class AdapterEstudiante (
                         val intentExplicito = Intent(contexto,EstudiantesFormularioActualizacion::class.java)
                         intentExplicito.putExtra("id",idItem)
                         contexto.startActivity(intentExplicito)
+                        contexto.finish()
                         Toast.makeText(contexto, "Editar estudiante -> ${adapterPosition}", Toast.LENGTH_SHORT).show()
                         true
                     }

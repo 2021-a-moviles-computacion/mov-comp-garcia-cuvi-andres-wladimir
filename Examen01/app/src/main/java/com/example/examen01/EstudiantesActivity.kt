@@ -36,6 +36,7 @@ class EstudiantesActivity : AppCompatActivity() {
 
         btnIrAFormularioRegistroEstudiante.setOnClickListener {
             startActivity(Intent(this,EstudiantesFormularioRegistro::class.java))
+            this.finish()
         }
     }
 
