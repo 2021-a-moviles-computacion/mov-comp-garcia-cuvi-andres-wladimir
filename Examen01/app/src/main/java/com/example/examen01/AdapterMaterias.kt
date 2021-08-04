@@ -1,7 +1,9 @@
 package com.example.examen01
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -64,17 +66,36 @@ class AdapterMaterias(
 
                     //Eliminar
                     R.id.menuEliminarMaterias -> {
+                        val builder = AlertDialog.Builder(contexto)
+                        builder.setTitle("ALERTA !! \n Seguro quiere eliminar esta materia?")
+                        builder.setPositiveButton(
+                            "Aceptar",
+                            DialogInterface.OnClickListener { dialog, which ->
+                                BaseDeDatos.TablaMateria!!.eliminarMateriaPorId(idItem.id)
+                                Toast.makeText(
+                                    contexto,
+                                    "Eliminar clicked -- ${adapterPosition}",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                contexto.finish()
+                                contexto.startActivity(
+                                    Intent(
+                                        contexto,
+                                        MateriasActivity::class.java
+                                    )
+                                )
+                            }
+                        )
+
+                        builder.setNegativeButton(
+                            "Cancelar",null
+                        )
+
+                        val dialog = builder.create()
+                        dialog.show()
 
                         //BaseDeDatos.TablaMateria!!.eliminarMateriaPorCodigo(idItem.codigo.toString())
-                        BaseDeDatos.TablaMateria!!.eliminarMateriaPorId(idItem.id)
-                        Toast.makeText(
-                            contexto,
-                            "Eliminar clicked -- ${adapterPosition}",
-                            Toast.LENGTH_SHORT
-                        ).show()
 
-                        //contexto.startActivity(Intent(contexto, MateriasActivity::class.java));
-                        contexto.finish()
                         //contexto.setResult(Activity.RESULT_OK)
                         //contexto.startActivityForResult(Intent(contexto,MateriasActivity::class.java),400)
 

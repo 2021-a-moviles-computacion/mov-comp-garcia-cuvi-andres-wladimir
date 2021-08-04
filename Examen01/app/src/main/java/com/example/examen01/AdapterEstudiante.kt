@@ -1,5 +1,7 @@
 package com.example.examen01
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -10,11 +12,11 @@ import android.widget.Toast
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.RecyclerView
 
-class AdapterEstudiante (
+class AdapterEstudiante(
     private val contexto: EstudiantesActivity,
     private var listaEstudiante: ArrayList<Estudiante>,
     private val recyclerView: RecyclerView
-        ) : RecyclerView.Adapter<AdapterEstudiante.MyViewHolder>(){
+) : RecyclerView.Adapter<AdapterEstudiante.MyViewHolder>() {
 
     inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var idMateriaTextView: TextView
@@ -45,32 +47,55 @@ class AdapterEstudiante (
             val popup = PopupMenu(contexto, v)
             popup.inflate(R.menu.menu_estudiantes)
             popup.setOnMenuItemClickListener {
-                when (it.itemId){
+                when (it.itemId) {
                     //Editar
                     R.id.menuEditarEstudiante -> {
-                        val intentExplicito = Intent(contexto,EstudiantesFormularioActualizacion::class.java)
-                        intentExplicito.putExtra("id",idItem)
+                        val intentExplicito =
+                            Intent(contexto, EstudiantesFormularioActualizacion::class.java)
+                        intentExplicito.putExtra("id", idItem)
                         contexto.startActivity(intentExplicito)
                         contexto.finish()
-                        Toast.makeText(contexto, "Editar estudiante -> ${adapterPosition}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            contexto,
+                            "Editar estudiante -> ${adapterPosition}",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         true
                     }
 
 
                     //Eliminar
                     R.id.menuEliminarEstudiante -> {
-                        BaseDeDatos.TablaEstudiante!!.eliminarEstudiantePorId(idItem.id)
-                        Toast.makeText(
-                            contexto,
-                            "Estudiante eliminado -> ${adapterPosition}",
-                            Toast.LENGTH_SHORT
-                        ).show()
 
-                        contexto.finish()
+                        val builder = AlertDialog.Builder(contexto)
+                        builder.setTitle("ALERTA !! \n Seguro quiere eliminar este estudiante?")
+                        builder.setPositiveButton(
+                            "Aceptar",
+                            DialogInterface.OnClickListener { dialog, which ->
+                                BaseDeDatos.TablaEstudiante!!.eliminarEstudiantePorId(idItem.id)
+                                Toast.makeText(
+                                    contexto,
+                                    "Estudiante eliminado -> ${adapterPosition}",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                contexto.finish()
+                                contexto.startActivity(
+                                    Intent(
+                                        contexto,
+                                        EstudiantesActivity::class.java
+                                    )
+                                )
+                            }
+                        )
 
+                        builder.setNegativeButton(
+                            "Cancelar", null
+                        )
+
+                        val dialog = builder.create()
+                        dialog.show()
                         true
                     }
-
 
 
                     else -> true
