@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:layout_marginTop="5dp">
 
     <!--    <ImageView
             android:id="@+id/avatar"
@@ -58,8 +59,5 @@
             android:gravity="right|bottom"
             android:text="4"
             android:textSize="12dp" />
-
-
-        />
     </LinearLayout>
 </LinearLayout>
