@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.mikhaellopez.circularimageview.CircularImageView
 
 class AdaptadorUsuarioChat (
     private val contexto: MainActivity,
@@ -17,7 +18,7 @@ class AdaptadorUsuarioChat (
 
         var nombreChat: TextView
         var mensajeChat: TextView
-        var imagenChat: ImageView
+        var imagenChat: CircularImageView
         var fechaChat: TextView
         var numMensahesChat: TextView
 

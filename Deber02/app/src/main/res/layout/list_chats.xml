@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <ImageView
+    <!--    <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp" />-->
+
+    <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/avatar"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="5dp" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5dp"/>
 
     <LinearLayout
         android:layout_width="290dp"
@@ -33,9 +39,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_margin="5dp"
-        >
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tvFechaChat"
@@ -43,7 +48,7 @@
             android:layout_height="wrap_content"
             android:gravity="right"
             android:text="8/18/21"
-            android:textSize="10dp"/>
+            android:textSize="10dp" />
 
         <TextView
             android:id="@+id/tvNumMensajesChat"
@@ -51,10 +56,9 @@
             android:layout_height="match_parent"
             android:gravity="right|bottom"
             android:text="4"
-            android:textSize="12dp"
-            />
+            android:textSize="12dp" />
 
 
-            />
+        />
     </LinearLayout>
 </LinearLayout>
