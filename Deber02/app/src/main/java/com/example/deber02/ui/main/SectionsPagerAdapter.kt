@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.example.deber02.R
 
 private val TAB_TITLES = arrayOf(
-   // R.drawable.camara_fotografica,
+    // R.drawable.camara_fotografica,
     R.string.tab_text_1,
     R.string.tab_text_2,
     R.string.tab_text_3
@@ -21,9 +21,24 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1)
+        var fragment: Fragment? = null
+
+        when(position) {
+            0 -> {
+                fragment = FragmentChats()
+            }
+
+            1 -> {
+                fragment = FragmentEstados()
+            }
+
+            2 -> {
+                fragment = FragmentLlamadas()
+            }
+
+        }
+
+        return fragment!!
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
