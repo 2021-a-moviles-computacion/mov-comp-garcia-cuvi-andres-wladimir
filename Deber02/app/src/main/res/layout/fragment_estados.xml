@@ -55,6 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvEstadosFragment"
         android:layout_width="412dp"
         android:layout_height="620dp"
 
