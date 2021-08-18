@@ -40,9 +40,11 @@
                 android:layout_width="12dp"
                 android:layout_height="12dp"
                 android:layout_margin="3dp"
+                android:layout_gravity="bottom"
                 android:src="@drawable/flecha_enviar"/>
 
             <TextView
+                android:layout_marginLeft="8dp"
                 android:id="@+id/tvFechaLlamada"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

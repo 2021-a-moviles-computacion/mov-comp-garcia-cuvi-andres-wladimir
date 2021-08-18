@@ -32,6 +32,13 @@ class FragmentLlamadas: Fragment() {
 
         listaUsuarioLlamada.add(UsuarioLlamada("Jaime Roldos","Hace 50 minutos",R.drawable.fake,R.drawable.flecha_enviar))
 
+        listaUsuarioLlamada.add(UsuarioLlamada("Andrés García","Ayer 23:21",R.drawable.andres,R.drawable.flecha_perdida))
+
+        listaUsuarioLlamada.add(UsuarioLlamada("Pedro Pérez","Ayer 11:54",R.drawable.user,R.drawable.flecha_recibir))
+
+
+
+
         iniciarRecyclerView(listaUsuarioLlamada, MainActivity(),recyclerViewLlamada)
         return root
     }

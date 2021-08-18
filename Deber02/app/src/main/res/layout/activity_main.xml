@@ -52,6 +52,7 @@
             android:background="@color/green_whatsapp"
             app:tabSelectedTextColor="@color/white"
             app:tabTextColor="#9CC6C2"
+            
             />
 
     </com.google.android.material.appbar.AppBarLayout>
