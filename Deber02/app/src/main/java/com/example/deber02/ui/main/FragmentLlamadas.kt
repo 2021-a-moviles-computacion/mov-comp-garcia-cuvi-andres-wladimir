@@ -36,6 +36,17 @@ class FragmentLlamadas: Fragment() {
 
         listaUsuarioLlamada.add(UsuarioLlamada("Pedro Pérez","Ayer 11:54",R.drawable.user,R.drawable.flecha_recibir))
 
+        listaUsuarioLlamada.add(UsuarioLlamada("Jose Guarderas","Ayer 09:50",R.drawable.jose,R.drawable.flecha_recibir))
+
+        listaUsuarioLlamada.add(UsuarioLlamada("Edison","16 de agosto 13:46",R.drawable.edi,R.drawable.flecha_perdida))
+
+
+        listaUsuarioLlamada.add(UsuarioLlamada("Daniel","16 de agosto 11:43",R.drawable.daniel,R.drawable.flecha_enviar))
+
+        listaUsuarioLlamada.add(UsuarioLlamada("Erick","15 de agosto 20:04",R.drawable.fotos2,R.drawable.flecha_enviar))
+
+        listaUsuarioLlamada.add(UsuarioLlamada("Cesar Taco","15 de agosto 14:40",R.drawable.cesi,R.drawable.flecha_perdida))
+
 
 
 

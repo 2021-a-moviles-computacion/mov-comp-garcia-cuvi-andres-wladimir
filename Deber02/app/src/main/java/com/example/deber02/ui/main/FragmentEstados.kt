@@ -30,9 +30,71 @@ class FragmentEstados : Fragment() {
             UsuarioEstado(
                 "Andrés García",
                 "hace 50 minutos",
-                R.drawable.andres
+                R.drawable.estado1
             )
         )
+        listaUsuarioEstado.add(
+            UsuarioEstado(
+                "Cesar Taco",
+                "hace 55 minutos",
+                R.drawable.estado2
+            )
+        )
+        listaUsuarioEstado.add(
+            UsuarioEstado(
+                "Edison",
+                "Hoy 10:27",
+                R.drawable.estado3
+            )
+        )
+        listaUsuarioEstado.add(
+            UsuarioEstado(
+                "Erick",
+                "Hoy 10:24",
+                R.drawable.fotos2
+            )
+        )
+        listaUsuarioEstado.add(
+            UsuarioEstado(
+                "Daniel",
+                "Hoy 09:27",
+                R.drawable.daniel
+            )
+        )
+
+                listaUsuarioEstado.add(
+            UsuarioEstado(
+                "Jaime Roldos",
+                "Hoy 09:15",
+                R.drawable.fake
+            )
+        )
+
+                listaUsuarioEstado.add(
+            UsuarioEstado(
+                "Jose Guarderas",
+                "Hoy 08:27",
+                R.drawable.jose
+            )
+        )
+
+                listaUsuarioEstado.add(
+            UsuarioEstado(
+                "Daniel",
+                "Hoy 07:27",
+                R.drawable.daniel
+            )
+        )
+
+                listaUsuarioEstado.add(
+            UsuarioEstado(
+                "Daniel",
+                "Hoy 06:27",
+                R.drawable.daniel
+            )
+        )
+
+
 
         iniciarRecyclerView(listaUsuarioEstado, MainActivity(), recyclerViewEstado)
 

@@ -51,6 +51,57 @@ class FragmentChats : Fragment() {
             )
         )
 
+        listaUsuarioChat.add(
+            UsuarioChat(
+                "César Taco",
+                "oe no hice el deber :c",
+                R.drawable.cesi,
+                "11:30",
+                1
+            )
+        )
+
+        listaUsuarioChat.add(
+            UsuarioChat(
+                "Daniel",
+                "ya baja a comer ctm",
+                R.drawable.daniel,
+                "10:30",
+                1
+            )
+        )
+        listaUsuarioChat.add(
+            UsuarioChat(
+                "Edison",
+                "Que fue prro xd",
+                R.drawable.edi,
+                "10:30",
+                1
+            )
+        )
+        listaUsuarioChat.add(
+            UsuarioChat(
+                "Erick",
+                "Ya ponte al Guarson :v",
+                R.drawable.fotos2,
+                "09:25",
+                2
+            )
+        )
+        listaUsuarioChat.add(
+            UsuarioChat(
+                "José Guarderas",
+                "Oe ayuda con un deber xd",
+                R.drawable.jose,
+                "Ayer",
+                2
+            )
+        )
+
+
+
+
+
         iniciarRecyclerView(listaUsuarioChat, MainActivity(), recyclerViewChats)
 
             return root
