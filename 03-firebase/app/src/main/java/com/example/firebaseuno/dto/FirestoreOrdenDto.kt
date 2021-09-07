@@ -15,9 +15,9 @@ class FirestoreOrdenDto (
         basePrice
             .setCurrency(Currency.getInstance("USD"))
 
-        return "${nombreProducto}       " +
-                "${basePrice.format(precioUnitario)}             " +
-                "${cantidad}         " +
+        return "${nombreProducto}               " +
+                "${basePrice.format(precioUnitario)}                   " +
+                "${cantidad}            " +
                 "${basePrice.format(CalcularTotalProductos())} "
     }
 

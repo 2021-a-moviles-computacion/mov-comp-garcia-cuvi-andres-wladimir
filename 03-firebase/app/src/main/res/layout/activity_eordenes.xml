@@ -20,9 +20,9 @@
 
     <Spinner
         android:id="@+id/sprestaurantes"
-        android:layout_width="176dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="340dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView"
@@ -30,58 +30,58 @@
 
     <Spinner
         android:id="@+id/spProducto"
-        android:layout_width="178dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toEndOf="@+id/sprestaurantes"
+        android:layout_width="190dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/sprestaurantes"
-        app:layout_constraintTop_toBottomOf="@+id/sprestaurantes" />
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
         android:id="@+id/btnAñadirListaProductos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
+        android:layout_marginTop="28dp"
         android:text="Add"
-        app:layout_constraintBottom_toBottomOf="@+id/spProducto"
-        app:layout_constraintStart_toEndOf="@+id/spProducto"
-        app:layout_constraintTop_toTopOf="@+id/spProducto"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="@+id/etCantidadProductos"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="@+id/spProducto"
+        app:layout_constraintTop_toBottomOf="@+id/etCantidadProductos" />
 
     <EditText
         android:id="@+id/etCantidadProductos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_width="140dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
         android:ems="10"
         android:hint="Ingrese cantidad"
         android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="@+id/spProducto"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/spProducto"
-        app:layout_constraintTop_toBottomOf="@+id/spProducto" />
+        app:layout_constraintBottom_toBottomOf="@+id/spProducto"
+        app:layout_constraintStart_toEndOf="@+id/spProducto"
+        app:layout_constraintTop_toTopOf="@+id/spProducto"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:text="Lista de Productos"
-        app:layout_constraintEnd_toEndOf="@+id/etCantidadProductos"
-        app:layout_constraintHorizontal_bias="0.01"
-        app:layout_constraintStart_toStartOf="@+id/etCantidadProductos"
-        app:layout_constraintTop_toBottomOf="@+id/etCantidadProductos" />
+        app:layout_constraintEnd_toEndOf="@+id/sprestaurantes"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/sprestaurantes"
+        app:layout_constraintTop_toBottomOf="@+id/sprestaurantes" />
 
     <ListView
         android:id="@+id/lvListaPedido"
-        android:layout_width="331dp"
-        android:layout_height="134dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        android:layout_width="365dp"
+        android:layout_height="139dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnAñadirListaProductos"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/btnAñadirListaProductos"
+        app:layout_constraintTop_toBottomOf="@+id/btnAñadirListaProductos" />
 
     <Button
         android:id="@+id/btnCompletarPedido"
@@ -96,9 +96,9 @@
 
     <TextView
         android:id="@+id/tvEncabezado"
-        android:layout_width="331dp"
-        android:layout_height="18dp"
-        android:text="PRODUCTO\t\t VALOR UNITARIO\t\t CANTIDAD\t TOTAL"
+        android:layout_width="365dp"
+        android:layout_height="20dp"
+        android:text="PRODUCTO\t\t VALOR UNITARIO\t\t CANTIDAD\t\t TOTAL"
         app:layout_constraintBottom_toTopOf="@+id/lvListaPedido"
         app:layout_constraintEnd_toEndOf="@+id/lvListaPedido"
         app:layout_constraintHorizontal_bias="0.0"
@@ -120,7 +120,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="$"
+        android:text="Total  $"
         app:layout_constraintBottom_toBottomOf="@+id/tvTotalAPagar"
         app:layout_constraintEnd_toStartOf="@+id/tvTotalAPagar"
         app:layout_constraintTop_toTopOf="@+id/tvTotalAPagar"
