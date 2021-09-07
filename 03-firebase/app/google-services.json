@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "319921710784",
+    "project_id": "mov-com-2021-a-gar-cuv",
+    "storage_bucket": "mov-com-2021-a-gar-cuv.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319921710784:android:cdc3a51ae8e5140bcdef25",
+        "android_client_info": {
+          "package_name": "com.example.firebaseuno"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319921710784-nlkv0b9u7jegmatva9p0gl2ik7ip9nvn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhbqc1OK9zAfNh8ki3-RU1_BlgWZ1FMkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "319921710784-nlkv0b9u7jegmatva9p0gl2ik7ip9nvn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
