@@ -158,7 +158,7 @@ class EOrdenes : AppCompatActivity() {
         listViewProductos.adapter = listViewProductosAdapter
 
         botonAdd.setOnClickListener {
-            var editTextCantidadProductoCambio: String = editTextCantidadProducto.toString()
+            var editTextCantidadProductoCambio: String = editTextCantidadProducto.text.toString()
             if (editTextCantidadProductoCambio == ""){
                 editTextCantidadProductoCambio = "1"
             }
