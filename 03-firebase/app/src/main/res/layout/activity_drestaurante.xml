@@ -27,6 +27,29 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.322" />
+
+    <Button
+        android:id="@+id/btnDatosPrueba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Datos Prueba"
+        app:layout_constraintEnd_toEndOf="@+id/btnCrearRestaurante"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/btnCrearRestaurante"
+        app:layout_constraintTop_toBottomOf="@+id/btnCrearRestaurante" />
+
+    <Button
+        android:id="@+id/btnConsultar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Consultar"
+        app:layout_constraintEnd_toEndOf="@+id/btnDatosPrueba"
+        app:layout_constraintStart_toStartOf="@+id/btnDatosPrueba"
+        app:layout_constraintTop_toBottomOf="@+id/btnDatosPrueba" />
 </androidx.constraintlayout.widget.ConstraintLayout>

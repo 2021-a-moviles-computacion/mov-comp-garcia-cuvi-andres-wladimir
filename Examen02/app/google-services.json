@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "650301087029",
+    "project_id": "examen2-mov-com-2021-a-gar-cuv",
+    "storage_bucket": "examen2-mov-com-2021-a-gar-cuv.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650301087029:android:645892b9825664894d007c",
+        "android_client_info": {
+          "package_name": "com.example.examen2b_estudiante_materia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "650301087029-paj9vk8747hpipfjeo4n3dt26m0ocbjp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeyKl9i1yqZkYqRdveRXPvCdVBeirsAyw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "650301087029-paj9vk8747hpipfjeo4n3dt26m0ocbjp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
