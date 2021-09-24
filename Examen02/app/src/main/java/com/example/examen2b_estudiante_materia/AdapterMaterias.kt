@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.examen2b_estudiante_materia.dto.EstudianteDto
 import com.example.examen2b_estudiante_materia.dto.MateriaDto
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
@@ -44,7 +45,7 @@ class AdapterMaterias(
         private fun popUpMenus(v: View) {
             var registroMateria: (MutableList<DocumentSnapshot>)
 
-            var listaMateria = ArrayList<MateriaDto>()
+            val listaMateria = ArrayList<MateriaDto>()
 
             val db = Firebase.firestore
             val referenciaMateria = db.collection("materia")
@@ -53,17 +54,17 @@ class AdapterMaterias(
                 .addOnSuccessListener {
                     registroMateria = it.documents
                     registroMateria.forEach { iteracion ->
-                        var objMateria = iteracion.toObject(MateriaDto::class.java)
+                        val objMateria = iteracion.toObject(MateriaDto::class.java)
                         objMateria!!.uid = iteracion.id
-                        objMateria!!.codigo = iteracion.get("codigo").toString()
-                        objMateria!!.nombre = iteracion.get("nombre").toString()
-                        objMateria!!.creditos = iteracion.get("creditos").toString().toInt()
-                        objMateria!!.aula = iteracion.get("aula").toString()
-                        objMateria!!.materiaActiva = iteracion.get("estado").toString().toBoolean()
+                        objMateria.codigo = iteracion.get("codigo").toString()
+                        objMateria.nombre = iteracion.get("nombre").toString()
+                        objMateria.creditos = iteracion.get("creditos").toString().toInt()
+                        objMateria.aula = iteracion.get("aula").toString()
+                        objMateria.materiaActiva = iteracion.get("estado").toString().toBoolean()
 
                         listaMateria.add(objMateria)
                     }
-                    var idItem = listaMateria[adapterPosition]
+                    val idItem = listaMateria[adapterPosition]
                     val popup = PopupMenu(contexto, v)
                     popup.inflate(R.menu.menu_materias)
                     popup.setOnMenuItemClickListener {
@@ -117,27 +118,53 @@ class AdapterMaterias(
                                 val dialog = builder.create()
                                 dialog.show()
 
-                                //BaseDeDatos.TablaMateria!!.eliminarMateriaPorCodigo(idItem.codigo.toString())
-
-                                //contexto.setResult(Activity.RESULT_OK)
-                                //contexto.startActivityForResult(Intent(contexto,MateriasActivity::class.java),400)
-
-
                                 true
                             }
 
                             //Lista Estudiantes
-/*                    R.id.menuListaEstudiantes -> {
-                        var listaEstudiante = arrayListOf<Estudiante>()
-                        BaseDeDatos.TablaEstudiante = SQLiteHelper(contexto)
-                        if (BaseDeDatos.TablaEstudiante != null) {
-                            listaEstudiante =
-                                BaseDeDatos.TablaEstudiante!!.consultarEstudiantePorId(idItem.id)
-                        }
+                            R.id.menuListaEstudiantes -> {
 
-                        iniciarRecyclerView(listaEstudiante, EstudiantesActivity(), recyclerView)
-                        true
-                    }*/
+                                var registroEstudiante: (MutableList<DocumentSnapshot>)
+                                val listaEstudiante = ArrayList<EstudianteDto>()
+                                val db = Firebase.firestore
+
+                                val referenciaEstudiante = db.collection("estudiante")
+
+                                referenciaEstudiante.whereEqualTo("materia", idItem.uid)
+                                    .get()
+                                    .addOnSuccessListener {
+                                        registroEstudiante = it.documents
+                                        registroEstudiante.forEach { iteracion ->
+                                            val objEstudiante =
+                                                iteracion.toObject(EstudianteDto::class.java)
+                                            objEstudiante!!.uid = iteracion.id
+                                            objEstudiante.carrera =
+                                                iteracion.get("carrera").toString()
+                                            objEstudiante.cedula =
+                                                iteracion.get("cedula").toString()
+                                            objEstudiante.estadoEstudiante =
+                                                iteracion.get("estado").toString().toBoolean()
+                                            objEstudiante.fechaNacimiento =
+                                                iteracion.get("fecha").toString()
+                                            objEstudiante.idMateria =
+                                                iteracion.get("materia").toString()
+                                            objEstudiante.nombre =
+                                                iteracion.get("nombre").toString()
+                                            objEstudiante.numeroUnico =
+                                                iteracion.get("numeroUnico").toString()
+
+                                            listaEstudiante.add(objEstudiante)
+                                        }
+                                        //Iniciar Recycler View
+                                        iniciarRecyclerView(
+                                            listaEstudiante,
+                                            EstudiantesActivity(),
+                                            recyclerView
+                                        )
+                                    }
+
+                                true
+                            }
 
                             else -> true
                         }
@@ -173,6 +200,24 @@ class AdapterMaterias(
 
     override fun getItemCount(): Int {
         return listaMateria.size
+    }
+
+    fun iniciarRecyclerView(
+        lista: ArrayList<EstudianteDto>,
+        activity: EstudiantesActivity,
+        recyclerView: RecyclerView
+    ) {
+        val adaptador = AdapterEstudiante(
+            activity,
+            // this,
+            lista,
+            recyclerView
+        )
+        recyclerView.adapter = adaptador
+        recyclerView.itemAnimator = androidx.recyclerview.widget.DefaultItemAnimator()
+        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity)
+        adaptador.notifyDataSetChanged()
+
     }
 
 }

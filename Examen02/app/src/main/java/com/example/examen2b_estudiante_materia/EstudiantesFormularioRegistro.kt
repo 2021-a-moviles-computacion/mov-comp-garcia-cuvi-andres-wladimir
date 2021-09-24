@@ -39,8 +39,6 @@ class EstudiantesFormularioRegistro : AppCompatActivity() {
 
         val db = Firebase.firestore
         val referenciaMateria = db.collection("materia")
-        //var queryMateriaUid: String= ""
-
         referenciaMateria
             .whereEqualTo(
             "codigo",
@@ -48,7 +46,6 @@ class EstudiantesFormularioRegistro : AppCompatActivity() {
         )
             .get()
             .addOnSuccessListener {
-                val registro = it.query
                 for (documentos in it){
                     Log.i(" bdd","${documentos.data}")
                     Log.i(" bdd","${documentos.id}")

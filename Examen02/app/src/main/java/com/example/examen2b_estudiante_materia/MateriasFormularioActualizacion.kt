@@ -37,9 +37,9 @@ class MateriasFormularioActualizacion : AppCompatActivity() {
 
 
         editTextCodigo.setText(itemId!!.codigo)
-        editTextNombre.setText(itemId!!.nombre)
-        editTextCreditos.setText(itemId!!.creditos.toString())
-        editTextAula.setText(itemId!!.aula)
+        editTextNombre.setText(itemId.nombre)
+        editTextCreditos.setText(itemId.creditos.toString())
+        editTextAula.setText(itemId.aula)
 
         //Boton para Actualizar
         val btnActualizarMateria = findViewById<Button>(R.id.btnActualizarMateria)

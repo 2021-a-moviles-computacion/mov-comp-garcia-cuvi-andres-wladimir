@@ -29,7 +29,7 @@ class MateriasActivity : AppCompatActivity() {
 
         var registroMateria: (MutableList<DocumentSnapshot>)
 
-        var listaMateria = ArrayList<MateriaDto>()
+        val listaMateria = ArrayList<MateriaDto>()
 
         val db = Firebase.firestore
 
@@ -40,13 +40,13 @@ class MateriasActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 registroMateria = it.documents
                 registroMateria.forEach{ iteracion ->
-                    var objMateria = iteracion.toObject(MateriaDto::class.java)
+                    val objMateria = iteracion.toObject(MateriaDto::class.java)
                     objMateria!!.uid = iteracion.id
-                    objMateria!!.codigo = iteracion.get("codigo").toString()
-                    objMateria!!.nombre = iteracion.get("nombre").toString()
-                    objMateria!!.aula = iteracion.get("aula").toString()
-                    objMateria!!.creditos = iteracion.get("creditos").toString().toInt()
-                    objMateria!!.materiaActiva = iteracion.get("estado").toString().toBoolean()
+                    objMateria.codigo = iteracion.get("codigo").toString()
+                    objMateria.nombre = iteracion.get("nombre").toString()
+                    objMateria.aula = iteracion.get("aula").toString()
+                    objMateria.creditos = iteracion.get("creditos").toString().toInt()
+                    objMateria.materiaActiva = iteracion.get("estado").toString().toBoolean()
 
                     listaMateria.add(objMateria)
                 }
