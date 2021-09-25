@@ -127,6 +127,20 @@ class AdapterEstudiante(
                                 true
                             }
 
+                            R.id.menuVerUbicacion -> {
+                                val intentExplicito =
+                                    Intent(contexto, MapsActivity::class.java)
+                                intentExplicito.putExtra("id",idItem)
+                                contexto.startActivity(intentExplicito)
+                                contexto.finish()
+                                Toast.makeText(
+                                    contexto,
+                                    "Abriendo Ubicación",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                true
+                            }
+
 
                             else -> true
 
