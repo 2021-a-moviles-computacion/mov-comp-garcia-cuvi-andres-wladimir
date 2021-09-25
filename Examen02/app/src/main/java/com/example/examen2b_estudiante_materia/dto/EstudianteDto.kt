@@ -9,8 +9,8 @@ class EstudianteDto (
     var estadoEstudiante: Boolean?= null,
     var fechaNacimiento: String?= null,
     var idMateria: String? = null,
-    //var latitud: Double?= null,
-    //var longitud: Double?= null,
+    var latitud: Double?= null,
+    var longitud: Double?= null,
     var nombre: String?= null,
     var numeroUnico: String? = null,
     var uid: String? = null
@@ -22,8 +22,8 @@ class EstudianteDto (
         parcel.readByte() != 0.toByte(),
         parcel.readString(),
         parcel.readString(),
-      //  parcel.readValue(Double::class.java.classLoader) as? Double,
-        //parcel.readValue(Double::class.java.classLoader) as? Double,
+        parcel.readDouble(),
+        parcel.readDouble(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString()
@@ -44,8 +44,8 @@ class EstudianteDto (
         parcel.writeByte(if (estadoEstudiante!!) 1 else 0)
         parcel.writeString(fechaNacimiento)
         parcel.writeString(idMateria)
-       // parcel.writeValue(latitud)
-        //parcel.writeValue(longitud)
+        parcel.writeDouble(latitud!!)
+        parcel.writeDouble(longitud!!)
         parcel.writeString(nombre)
         parcel.writeString(numeroUnico)
         parcel.writeString(uid)

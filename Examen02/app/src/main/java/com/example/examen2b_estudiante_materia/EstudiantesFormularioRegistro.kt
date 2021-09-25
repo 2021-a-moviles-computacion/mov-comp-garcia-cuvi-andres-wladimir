@@ -116,8 +116,8 @@ class EstudiantesFormularioRegistro : AppCompatActivity() {
                         "materia" to documentos.id,
                         "nombre" to editTextNombre.text.toString(),
                         "numeroUnico" to editTextCodigoUnico.text.toString(),
-                        //"latitud"
-                        //"longitud"
+                        "latitud" to latitud,
+                        "longitud" to longitud
                     )
 
 

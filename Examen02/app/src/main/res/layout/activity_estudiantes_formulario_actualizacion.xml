@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".EstudiantesFormularioActualizacion">
 
+
     <TextView
         android:id="@+id/textView5Actualizar"
         android:layout_width="wrap_content"
@@ -15,17 +16,16 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082" />
-
+        app:layout_constraintVertical_bias="0.022" />
 
     <EditText
         android:id="@+id/edtxtCodigoEstudianteActualizar"
         android:layout_width="263dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Código Único"
         android:inputType="textPersonName"
@@ -109,15 +109,25 @@
         app:layout_constraintStart_toStartOf="@+id/edtxtIDMateriaEstudianteActualizar"
         app:layout_constraintTop_toBottomOf="@+id/edtxtIDMateriaEstudianteActualizar" />
 
+    <Spinner
+        android:id="@+id/spUbicacionEstudianteActualizar"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/checkBoxEstadoEstudianteActualizar"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="@+id/checkBoxEstadoEstudianteActualizar"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxEstadoEstudianteActualizar" />
+
     <Button
         android:id="@+id/btnActualizarEstudiante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:text="ACTUALIZAR"
-        app:layout_constraintEnd_toEndOf="@+id/checkBoxEstadoEstudianteActualizar"
-        app:layout_constraintStart_toStartOf="@+id/checkBoxEstadoEstudianteActualizar"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxEstadoEstudianteActualizar" />
+        app:layout_constraintEnd_toEndOf="@+id/spUbicacionEstudianteActualizar"
+        app:layout_constraintStart_toStartOf="@+id/spUbicacionEstudianteActualizar"
+        app:layout_constraintTop_toBottomOf="@+id/spUbicacionEstudianteActualizar" />
 
 
 

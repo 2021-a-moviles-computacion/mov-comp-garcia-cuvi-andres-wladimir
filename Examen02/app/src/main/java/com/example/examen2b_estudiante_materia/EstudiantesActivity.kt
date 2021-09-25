@@ -45,6 +45,8 @@ class EstudiantesActivity : AppCompatActivity() {
                     objEstudiante!!.estadoEstudiante=iteracion.get("estado").toString().toBoolean()
                     objEstudiante!!.fechaNacimiento=iteracion.get("fecha").toString()
                     objEstudiante!!.idMateria=iteracion.get("materia").toString()
+                    objEstudiante!!.latitud = iteracion.get("latitud") as Double?
+                    objEstudiante!!.longitud = iteracion.get("longitud")as Double?
                     objEstudiante!!.nombre=iteracion.get("nombre").toString()
                     objEstudiante!!.numeroUnico=iteracion.get("numeroUnico").toString()
 
