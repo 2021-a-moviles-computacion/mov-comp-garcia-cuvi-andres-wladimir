@@ -15,16 +15,16 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintVertical_bias="0.022" />
 
     <EditText
         android:id="@+id/edtxtCodigoEstudiante"
         android:layout_width="263dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Código Único"
         android:inputType="textPersonName"
@@ -115,16 +115,26 @@
         app:layout_constraintStart_toStartOf="@+id/edtxtIDMateriaEstudiante"
         app:layout_constraintTop_toBottomOf="@+id/edtxtIDMateriaEstudiante" />
 
+    <Spinner
+        android:id="@+id/spUbicacionEstudiante"
+        android:layout_width="263dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/checkBoxEstadoEstudiante"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/checkBoxEstadoEstudiante"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxEstadoEstudiante" />
+
     <Button
         android:id="@+id/btnCrearEstudiante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:text="CREAR"
-        app:layout_constraintEnd_toEndOf="@+id/checkBoxEstadoEstudiante"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="@+id/checkBoxEstadoEstudiante"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxEstadoEstudiante" />
+        app:layout_constraintEnd_toEndOf="@+id/spUbicacionEstudiante"
+        app:layout_constraintStart_toStartOf="@+id/spUbicacionEstudiante"
+        app:layout_constraintTop_toBottomOf="@+id/spUbicacionEstudiante" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
