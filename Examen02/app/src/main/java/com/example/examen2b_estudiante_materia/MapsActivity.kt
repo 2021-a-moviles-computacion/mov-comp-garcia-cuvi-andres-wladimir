@@ -37,7 +37,7 @@ class MapsActivity : AppCompatActivity() {
             val longitud = itemId?.longitud!!.toDouble()
 
            val ubicacion = LatLng(latitud, longitud)
-            val zoom = 14f
+            val zoom = 12f
            anadirMarcador(ubicacion, itemId?.nombre.toString())
             moverCamaraConZoom(ubicacion, zoom)
         }
